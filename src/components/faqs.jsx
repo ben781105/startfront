@@ -1,8 +1,8 @@
 import { useState } from "react"
-import rightArrow from '../assets/svgs/right-arrow-icon.svg'
+import rightArrow from '../assets/svgs/forward.svg'
 function FAQ() {
 
-    const [openId,setOpenId] =useState(false)
+  const [openId,setOpenId] =useState(false)
 
    
   const faqs=[
@@ -44,7 +44,7 @@ function FAQ() {
          <div key={id} className=" border border-gray-300 p-4 rounded-lg">
             <div className="flex justify-between items-center cursor-pointer"
             onClick={()=>toggle(id)}>
-                <h2 className="font-semibold">{question}</h2>
+                <h2 className=" text-base font-semibold">{question}</h2>
                 <img 
                 className={`transform transition-transform duration-300 ${openId===id? "rotate-90":""}`}
                 src={rightArrow} alt="" width={24} />

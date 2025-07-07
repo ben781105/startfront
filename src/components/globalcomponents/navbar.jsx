@@ -1,11 +1,14 @@
 import { useState } from "react";
 import menu from '../../assets/svgs/menu.svg';
-
+import { useNavigate } from "react-router-dom";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
    const navLinks = ["Home", "About", "Features", "Pricing", "FAQ's", ];
+
+   const navigate = useNavigate();
    const toDashboard = () => {
       setIsOpen(false);
+      navigate('/dashboard');
   };
 
 

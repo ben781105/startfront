@@ -1,6 +1,6 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom"
 import Homepage from "./components/homepage"
-import Dashboard from "./components/dashboard"
+import Dashboard from "./components/dashboard/dashboardLayout.jsx"
 function App(){
    return (
      <BrowserRouter>

@@ -1,7 +1,10 @@
 import { useState } from "react";
 import menu from '../../assets/svgs/menu.svg';
 import { useNavigate } from "react-router-dom";
+//import { useSelector } from "react-redux";
 function Navbar() {
+
+  
   const [isOpen, setIsOpen] = useState(false);
    const navLinks = ["Home", "About", "Features", "Pricing", "FAQ's", ];
 
@@ -10,7 +13,6 @@ function Navbar() {
       setIsOpen(false);
       navigate('/dashboard');
   };
-
 
   return (
     <nav className="flex flex-col z-50 fixed top-0 left-0 right-0    bg-red-300 gap-2 p-3 pl-5 pr-5 md:flex-row md:items-center md:justify-between md:gap-40">

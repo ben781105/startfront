@@ -2,42 +2,6 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import api from '../../../api';
 import { jwtDecode } from 'jwt-decode';
 
-export const loginUser = createAsyncThunk(
-    'user/loginUser',
-    async (credentials, {rejectWithValue}) =>{
-        try{
-            const response = await api.post('token/', credentials)
-            const {access, refresh} = response.data
-
-            localStorage.setItem('access', access)
-            localStorage.setItem('refresh', refresh)
-
-            return jwtDecode(access)
-        }
-        catch(error){
-            return rejectWithValue(error.response.data)
-        }
-        }
-
-    
-)
-
-export const refreshToken = createAsyncThunk(
-    'user/refreshToken',
-    async (_, {rejectWithValue}) =>{
-        try{
-            const refresh = localStorage.getItem('refresh')
-            const response = await api.post('token/refresh/',{refresh})
-            const {access} = response.data
-
-            localStorage.setItem('access', access)    
-            return jwtDecode(access)
-        }
-        catch (error){
-            return rejectWithValue(error.response.data)
-        }
-    }
-)
 
 const userSlice = createSlice({
     name: 'user',
@@ -90,6 +54,45 @@ const userSlice = createSlice({
         });
     }
 })
+
+export const loginUser = createAsyncThunk(
+    'user/loginUser',
+    async (credentials, {rejectWithValue}) =>{
+        try{
+            const response = await api.post('token/', credentials)
+            const {access, refresh} = response.data
+
+            localStorage.setItem('access', access)
+            localStorage.setItem('refresh', refresh)
+
+            return jwtDecode(access)
+        }
+        catch(error){
+            return rejectWithValue(error.response.data)
+        }
+        }
+
+    
+)
+
+export const refreshToken = createAsyncThunk(
+    'user/refreshToken',
+    async (_, {rejectWithValue}) =>{
+        try{
+            const refresh = localStorage.getItem('refresh')
+            const response = await api.post('token/refresh/',{refresh})
+            const {access} = response.data
+
+            localStorage.setItem('access', access)    
+            return jwtDecode(access)
+        }
+        catch (error){
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
+
 
 export const { logout, loadUser } = userSlice.actions;
 export default userSlice.reducer;

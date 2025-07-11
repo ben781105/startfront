@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
-import { store } from './store/store';
-import { logout } from './store/features/user/userSlice';
+//import { logout } from './store/features/user/userSlice';
 
 const API_URL = 'http://127.0.0.1:8000/api/';
 
@@ -24,7 +23,6 @@ api.interceptors.request.use(
           token = response.data.access;
           localStorage.setItem('access', token);
         } catch (err) {
-          store.dispatch(logout()); 
           return Promise.reject(err);
         }
       }

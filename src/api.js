@@ -1,28 +1,42 @@
 import axios from 'axios';
-import {jwtDecode} from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode';
+import { store } from './store/store';
+import { logout } from './store/features/user/userSlice';
 
 const API_URL = 'http://127.0.0.1:8000/api/';
 
 const api = axios.create({
-    baseURL: API_URL,
+  baseURL: API_URL,
 });
 
 api.interceptors.request.use(
-    (config) => {
-        const token = localStorage.getItem('access');
-        if (token ) {
-            const decoded = jwtDecode(token)
-            const expiry_date = decoded.exp
-            const current_time = Date.now()/1000
-            if(expiry_date>current_time){
-        
-            config.headers.Authorization = `Bearer ${token}`;}
+  async (config) => {
+    let token = localStorage.getItem('access');
+    const refresh = localStorage.getItem('refresh');
+
+    if (token) {
+      const decoded = jwtDecode(token);
+      const now = Date.now() / 1000;
+
+      if (decoded.exp < now && refresh) {
+        try {
+          const response = await axios.post(`${API_URL}token/refresh/`, { refresh });
+          token = response.data.access;
+          localStorage.setItem('access', token);
+        } catch (err) {
+          store.dispatch(logout()); 
+          return Promise.reject(err);
         }
-        return config;
-    },
-    (error) => {
-        return Promise.reject(error);
+      }
+
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
     }
-)
+
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 export default api;

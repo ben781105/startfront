@@ -16,8 +16,8 @@ function Navbar() {
 
   return (
     <nav className="flex flex-col z-50 fixed top-0 left-0 right-0    bg-red-300 gap-2 p-3 pl-5 pr-5 md:flex-row md:items-center md:justify-between md:gap-40">
-      <div className="flex items-center justify-between w-full md:w-auto">
-        <h1>Send It</h1>
+      <div className="flex items-center justify-between w-full md:pl-20 md:w-auto">
+        <h1 className="md:text-3xl text-2xl">SEND IT</h1>
         <img
           src={menu}
           className="cursor-pointer md:hidden"
@@ -28,7 +28,7 @@ function Navbar() {
       </div>
 
       <div
-        className={`flex-col md:flex md:flex-row md:items-center md:gap-30 overflow-hidden transition-all duration-300 ${
+        className={`flex-col md:flex md:flex-row md:items-center md:gap-10 overflow-hidden transition-all duration-300 ${
           isOpen ? 'max-h-60 mt-2' : 'max-h-0'
         } md:max-h-full md:mt-0`}
       >

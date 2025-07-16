@@ -60,8 +60,8 @@ function Navbar() {
         </ul>
 
         {darkMode
-          ? <FaSun onClick={toggleDark} className='lg cursor-pointer' />
-          : <FaMoon onClick={toggleDark} className='text-lg cursor-pointer' />
+          ? <span className='flex items-center  bg-[#6EACDA] justify-center  w-8 h-8 rounded-full'><FaSun onClick={toggleDark} className='text-lg text-[#fff] cursor-pointer' /></span>
+          :<span className='flex items-center  bg-[#6EACDA] justify-center  w-8 h-8 rounded-full'><FaMoon onClick={toggleDark} className='text-lg text-[#021526] cursor-pointer' /></span>
         }
 
         <button

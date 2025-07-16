@@ -25,21 +25,21 @@ function About(){
 
     ]
   return(
-    <section className='dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] h-fit flex flex-col max-w-screen md:px-10 lg:px-30  pl-4 pr-4 pt-8 pb-8 justify-center '>
-        <h1 className='self-center relative text-2xl sm:text-3xl 2xl:text-5xl '>
+    <section className='dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] h-fit flex flex-col max-w-screen md:px-10 lg:px-30  pl-4 pr-4 pt-8 pb-30 justify-center '>
+        <h1 className='light:text-gray-800 self-center relative text-2xl sm:text-3xl 2xl:text-5xl '>
           Know who we are
           <span className='w-20 2xl:w-35 h-1 bg-blue-500 border-blue-500 absolute left-18 top-13 2xl:top-16 2xl:left-37 '></span>
         </h1>
         <div className=' flex flex-col sm:flex-col md:flex-col lg:flex-row  w-full gap-7 mt-13 2xl:mt-25'>
        <div className='w-full'>
-        <p className='text-2xl text-bold 2xl:text-4xl'>Uganda's leading and most trusted bulk sms solutions provider</p>
-        <p className='mt-5 text-lg 2xl:text-2xl'>We are Uganda's leading and most trusted provider of bulk SMS solutions, 
+        <p className='light:text-neutral-900 text-2xl text-bold 2xl:text-4xl'>Uganda's leading and most trusted bulk sms solutions provider</p>
+        <p className=' light:text-neutral-800 mt-5 text-lg 2xl:text-2xl'>We are Uganda's leading and most trusted provider of bulk SMS solutions, 
             delivering reliable, high-quality messaging services to businesses of all sizes.</p>
         
         <ul className='flex flex-col gap-3 w-full mt-4'>
             {content.map((c)=>
             <li key={c.id}
-            className='text-base 2xl:text-xl flex gap-1 items-start'
+            className=' light:text-gray-800 text-base 2xl:text-xl flex gap-1 items-start'
             >
                 <img src={checkbox} width={20} alt="" /> {c.service}
             </li>

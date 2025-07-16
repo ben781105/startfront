@@ -32,9 +32,9 @@ function Navbar() {
   };
 
   return (
-    <nav className=" dark:bg-[#E2E2B6] dark:text-[#021526] flex flex-col z-50 fixed top-0 left-0 right-0 bg-red-300 gap-2 p-3 pl-5 pr-5 md:flex-row md:items-center md:justify-between md:gap-40">
+    <nav className="bg-blue-500 dark:bg-[#E2E2B6] dark:text-[#021526] flex flex-col z-50 fixed top-0 left-0 right-0 gap-2 p-3 pl-5 pr-5 md:flex-row md:items-center md:justify-between md:gap-40">
       <div className="flex items-center justify-between w-full md:pl-20 md:w-auto">
-        <h1 className="md:text-3xl text-2xl">SEND IT</h1>
+        <h1 className=" text-white dark:text-[#021526] md:text-3xl text-2xl">SEND IT</h1>
         <img
           src={menu}
           className="cursor-pointer md:hidden"
@@ -66,7 +66,7 @@ function Navbar() {
 
         <button
           onClick={toDashboard}
-          className="bg-[#03346E] font-semibold p-2 mt-4 md:mt-0 rounded-sm text-white"
+          className="bg-gradient-to-r from-purple-500 to-pink-500 dark:bg-[#03346E] font-semibold p-2 mt-4 md:mt-0 rounded-sm text-white"
         >
           DASHBOARD
         </button>

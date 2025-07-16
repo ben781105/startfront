@@ -35,7 +35,7 @@ function FAQ() {
     
   return (
     <section className=" pt-10 dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] pl-4 pr-4 h-fit md:pl-20 md:pr-20 mt-10 pb-8 flex flex-col">
-      <h1 className='self-center text-center relative text-3xl '>
+      <h1 className='light:text-gray-800 self-center text-center relative text-3xl '>
           Frequently Asked Questions
           <span className='w-18 h-1 bg-blue-500 border-blue-500 absolute left-35 top-12'></span>
       </h1>
@@ -52,7 +52,7 @@ function FAQ() {
             </div>
 
             <div className={`transition-all duration-300 overflow-hidden ${openId===id?"max-h-40 mt-2 opacity-100":"max-h-0 opacity-0"}`}>
-                <p className="dark:text-[#6EACDA]">{answer}</p>
+                <p className="text-blue-500 dark:text-[#6EACDA]">{answer}</p>
             </div>
 
          </div>

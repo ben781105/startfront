@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className=' dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] w-full bg-gray-200  pb-20 pt-6 mb-auto flex gap-8 justify-between pl-20 pr-20 md:pl-30 md:pr-30 flex-wrap'>
+    <footer className='bg-[#fffafa] dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] w-full pb-20 pt-6 mb-auto flex gap-8 justify-between pl-20 pr-20 md:pl-30 md:pr-30 flex-wrap'>
       <div>
         <h1 className='text-3xl italic'>SEND IT</h1>
         <span className='flex flex-col space-y-1 mt-6'>
@@ -26,7 +26,7 @@ function Footer() {
         <h2 className='font-semibold text-xl'>Need Assistance?</h2>
         <p className='md:max-w-sm'>Our support team is here to help you 24/7. 
             Reach out if you have questions or need assistance with our services.</p>
-        <button className='mt-4 bg-blue-500 p-2 text-white cursor-pointer rounded-lg'>Call Now</button>
+        <button className='mt-4 bg-gradient-to-r from-purple-500 to-pink-500  p-2 dark:bg-[#6EACDA] text-white cursor-pointer rounded-lg'>Call Now</button>
       </div>
     </footer>
   )

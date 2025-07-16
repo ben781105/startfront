@@ -1,4 +1,5 @@
 import { useState } from "react"
+
 import rightArrow from '../assets/svgs/forward.svg'
 function FAQ() {
 
@@ -33,7 +34,7 @@ function FAQ() {
 
     
   return (
-    <section className="pl-4 pr-4 h-fit md:pl-20 md:pr-20 mt-10 pb-8 flex flex-col">
+    <section className=" pt-10 dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] pl-4 pr-4 h-fit md:pl-20 md:pr-20 mt-10 pb-8 flex flex-col">
       <h1 className='self-center text-center relative text-3xl '>
           Frequently Asked Questions
           <span className='w-18 h-1 bg-blue-500 border-blue-500 absolute left-35 top-12'></span>
@@ -44,14 +45,14 @@ function FAQ() {
          <div key={id} className=" border border-gray-300 p-4 rounded-lg">
             <div className="flex justify-between items-center cursor-pointer"
             onClick={()=>toggle(id)}>
-                <h2 className=" text-base font-semibold">{question}</h2>
+                <h2 className=" text-base dark:text-[#E2E2B6] font-semibold">{question}</h2>
                 <img 
                 className={`transform transition-transform duration-300 ${openId===id? "rotate-90":""}`}
                 src={rightArrow} alt="" width={24} />
             </div>
 
             <div className={`transition-all duration-300 overflow-hidden ${openId===id?"max-h-40 mt-2 opacity-100":"max-h-0 opacity-0"}`}>
-                <p className="text-blue-600">{answer}</p>
+                <p className="dark:text-[#6EACDA]">{answer}</p>
             </div>
 
          </div>

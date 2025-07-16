@@ -1,21 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import menu from '../../assets/svgs/menu.svg';
 import { useNavigate } from "react-router-dom";
-//import { useSelector } from "react-redux";
+import { FaSun, FaMoon } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from "../../store/features/theme/themeSlice";
+
 function Navbar() {
-
-  
   const [isOpen, setIsOpen] = useState(false);
-   const navLinks = ["Home", "About", "Features", "Pricing", "FAQ's", ];
+  const navLinks = ["Home", "About", "Features", "Pricing", "FAQ's"];
 
-   const navigate = useNavigate();
-   const toDashboard = () => {
-      setIsOpen(false);
-      navigate('/dashboard');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme.mode);
+  const darkMode = theme === 'dark';
+
+  const toDashboard = () => {
+    setIsOpen(false);
+    navigate('/dashboard');
+  };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  const toggleDark = () => {
+    dispatch(toggleTheme());
   };
 
   return (
-    <nav className="flex flex-col z-50 fixed top-0 left-0 right-0    bg-red-300 gap-2 p-3 pl-5 pr-5 md:flex-row md:items-center md:justify-between md:gap-40">
+    <nav className=" dark:bg-[#E2E2B6] dark:text-[#021526] flex flex-col z-50 fixed top-0 left-0 right-0 bg-red-300 gap-2 p-3 pl-5 pr-5 md:flex-row md:items-center md:justify-between md:gap-40">
       <div className="flex items-center justify-between w-full md:pl-20 md:w-auto">
         <h1 className="md:text-3xl text-2xl">SEND IT</h1>
         <img
@@ -27,25 +44,30 @@ function Navbar() {
         />
       </div>
 
-      <div
-        className={`flex-col md:flex md:flex-row md:items-center md:gap-10 overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-60 mt-2' : 'max-h-0'
-        } md:max-h-full md:mt-0`}
-      >
-        <ul className="flex flex-col  gap-4  md:flex md:flex-row md:gap-6">
-         {navLinks.map((link, index) => (
-          <li key={index}
-          onClick={() => setIsOpen(false)}
-           className="text-base ">
-            {link}
-          </li>
-        ))}
+      <div className={`flex-col md:flex md:flex-row md:items-center md:gap-10 overflow-hidden transition-all duration-300 ${
+        isOpen ? 'max-h-70 mt-2' : 'max-h-0'
+      } md:max-h-full md:mt-0`}>
+        <ul className="flex flex-col gap-4 md:flex md:flex-row md:gap-6">
+          {navLinks.map((link, index) => (
+            <li
+              key={index}
+              onClick={() => setIsOpen(false)}
+              className="text-base"
+            >
+              {link}
+            </li>
+          ))}
         </ul>
 
-        <button 
-        onClick={toDashboard}
-        className="bg-blue-500 p-2 mt-4 md:mt-0 rounded-sm text-white">
+        {darkMode
+          ? <FaSun onClick={toggleDark} className='lg cursor-pointer' />
+          : <FaMoon onClick={toggleDark} className='text-lg cursor-pointer' />
+        }
 
+        <button
+          onClick={toDashboard}
+          className="bg-[#03346E] font-semibold p-2 mt-4 md:mt-0 rounded-sm text-white"
+        >
           DASHBOARD
         </button>
       </div>

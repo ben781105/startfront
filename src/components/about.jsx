@@ -25,7 +25,7 @@ function About(){
 
     ]
   return(
-    <section className=' h-fit flex flex-col max-w-screen md:px-10 lg:px-30  pl-4 pr-4 pt-8 pb-8 justify-center '>
+    <section className='dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] h-fit flex flex-col max-w-screen md:px-10 lg:px-30  pl-4 pr-4 pt-8 pb-8 justify-center '>
         <h1 className='self-center relative text-2xl sm:text-3xl 2xl:text-5xl '>
           Know who we are
           <span className='w-20 2xl:w-35 h-1 bg-blue-500 border-blue-500 absolute left-18 top-13 2xl:top-16 2xl:left-37 '></span>

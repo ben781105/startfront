@@ -4,3 +4,6 @@ li,button{
     list-style-type: none;
     cursor: pointer;
 }
+
+@custom-variant dark (&:where(.dark, .dark *))
+    

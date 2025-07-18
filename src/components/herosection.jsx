@@ -1,7 +1,8 @@
 import Lottie from "lottie-react"
 function Herosection(){
     return(
-        <section className=" bg-dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] relative min-h-screen flex flex-col  justify-center  gap-6 items-center overflow-x-hidden ">
+        <section className=" 
+ bg-dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] relative min-h-screen flex flex-col  justify-center  gap-6 items-center overflow-x-hidden ">
           <div className='flex flex-col  w-full px-4 ' >
             <p className=' dark:text-[#E2E2B6] md:text-5xl 2xl:text-6xl text-3xl sm:text-4xl text-center'>
               Seamlessly send bulk SMS messages in Uganda.

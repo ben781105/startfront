@@ -7,15 +7,16 @@ import {
   FaQuestionCircle,
   FaUsers,
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
   const links = [
     { id: 1, name: 'Dashboard', route: '/dashboard', icon: FaPenSquare },
-    { id: 2, name: 'Message', route: '/dashboard', icon: FaEnvelope },
-    { id: 3, name: 'Payments', route: '/dashboard', icon: FaMoneyBill },
-    { id: 4, name: 'Sms Groups', route: '/dashboard', icon: FaUsers },
-    { id: 5, name: 'Help Center', route: '/dashboard', icon: FaQuestionCircle },
-    { id: 6, name: 'Settings', route: '/dashboard', icon: FaCog },
+    { id: 2, name: 'Message', route: '/dashboard/messages', icon: FaEnvelope },
+    { id: 3, name: 'Payments', route: '/dashboard/payments', icon: FaMoneyBill },
+    { id: 4, name: 'Sms Groups', route: '/dashboard/smsgroups', icon: FaUsers },
+    { id: 5, name: 'Help Center', route: '/dashboard/help', icon: FaQuestionCircle },
+    { id: 6, name: 'Settings', route: '/dashboard/settings', icon: FaCog },
   ];
 
   return (
@@ -25,13 +26,14 @@ function Sidebar() {
         {links.map((link) => {
           const Icon = link.icon;
           return (
-            <li
+            <Link
+              to={link.route}
               key={link.id}
               className="flex items-center gap-3 text-lg cursor-pointer hover:bg-blue-800 px-8 py-2 rounded"
             >
               {Icon && <Icon />}
               {link.name}
-            </li>
+            </Link>
           );
         })}
       </ul>

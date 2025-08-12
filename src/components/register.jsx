@@ -22,22 +22,24 @@ const RegisterForm = () => {
 
   const onSubmit = async (data) => {
     try{
-        const response = await api.post('/register/',{
+        const response = await api.post('register/',{
             username: data.username,
             password: data.password,
             phone_number:data.phone_number,
         })
 
         console.log(response.data)
+        alert(response.data.message)
 
          await dispatch(loginUser({ username: data.username, password: data.password })).unwrap()
          navigate(from, { replace: true });
     }
     catch(error){
-       const errorMessage=
+       const errorMessage =
         error?.response?.data?.username?.[0] ||
         error?.response?.data?.password?.[0] ||
-        error?.response?.data?.phone_number?.[0]
+        error?.response?.data?.phone_number?.[0]||
+        "registration failed, please try again later"
 
         setError(errorMessage)
     }
@@ -62,8 +64,8 @@ const RegisterForm = () => {
             {...register("username", { required: "username is required" })}
             className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-400"
           />
-          {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+          {errors.username && (
+            <p className="text-red-500 text-sm mt-1">{errors.username.message}</p>
           )}
         </div>
 
@@ -100,8 +102,8 @@ const RegisterForm = () => {
             })}
             className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-400"
           />
-          {errors.phone && (
-            <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+          {errors.phone_number && (
+            <p className="text-red-500 text-sm mt-1">{errors.phone_number.message}</p>
           )}
         </div>
 

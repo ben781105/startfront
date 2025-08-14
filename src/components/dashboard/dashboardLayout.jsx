@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <main className='flex w-full min-h-screen overflow-x-hidden border-3'>
       <Sidebar/>
-      <section className='flex-1 px-4 w-full h-full'> 
+      <section className=' relative flex-1 px-4 w-full h-full'> 
         <header className='flex items-center justify-between '>
         <span>Welcome Back , Benard 🎉</span>
         <div className='flex items-center relative gap-4  p-2 rounded-lg w-[50%]'>

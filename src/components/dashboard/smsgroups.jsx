@@ -1,22 +1,35 @@
 import { fetchGroups } from "../../store/features/group/groupSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
+import GroupModal from "./groupModal"
+import {motion as Motion, AnimatePresence} from 'framer-motion'
+import Editgroup from "./editGroup"
+import DeleteGroup from "./DeleteGroup"
+import AddContact from "./addContact"
 
 function SmsGroups() {
   const dispatch = useDispatch()
   const { groups, error } = useSelector((state) => state.group)
   const groupList = Array.isArray(groups) ? groups : []
 
+  const [createModal ,setCreateModal] = useState(false)
+  const [editModal, setEditModal] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false)
+  const [addContactModal, setAddContactModal] = useState(false)
+  const [selectedGroup, setSelectedGroup] = useState(null);
+
   const [search, setSearch] = useState("")
 
   useEffect(() => {
     dispatch(fetchGroups({ search, page: 1 }))
-  }, [dispatch, search]) // ✅ now refetches when search changes
+  }, [dispatch, search]) 
 
   return (
     <div className="mt-4 ">
       <div className="w-full flex items-center justify-between">
-        <button className="bg-blue-500 text-white h-10 py-2 px-6 rounded-md">
+        <button 
+        onClick={() => setCreateModal(true)}
+        className="bg-blue-500 text-white h-10 py-2 px-6 rounded-md">
         Create New Group
       </button>
 
@@ -58,9 +71,27 @@ function SmsGroups() {
                 <a href="#" className="text-blue-600 hover:underline">{group.contact_count}</a>
               </td>
               <td className="border border-gray-300 px-4 py-2 space-x-2">
-                <button className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded">Edit</button>
-                <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">Delete</button>
-                <button className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded">Add Contact</button>
+                <button 
+                onClick={() =>{ 
+                  setEditModal(true)
+                  setSelectedGroup(group)
+                }}
+                className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded">Edit</button>
+                <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+                onClick={() => {
+                  setDeleteModal(true)
+                  setSelectedGroup(group)
+                }}
+                >
+                  Delete
+                </button>
+                <button
+                onClick={() => {
+                  setAddContactModal(true)
+                  setSelectedGroup(group)
+                }}
+                 className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
+                >Add Contact</button>
               </td>
             </tr>
           ))
@@ -68,6 +99,64 @@ function SmsGroups() {
       </tbody>
     </table>
       </div>
+
+         <AnimatePresence>
+        {createModal && (
+          <Motion.div
+            className="fixed inset-0 z-50  flex items-center justify-center bg-black/30"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setCreateModal(false)}
+          >
+            <GroupModal onClose={() => setCreateModal(false)} />
+          </Motion.div>
+        )}
+      </AnimatePresence>
+
+        <AnimatePresence>
+        {editModal && (
+          <Motion.div
+            className="fixed inset-0 z-50  flex items-center justify-center bg-black/30"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setEditModal(false)}
+          >
+            <Editgroup onClose={() => setEditModal(false)} currentName={selectedGroup.name} groupId={selectedGroup.id} />
+          </Motion.div>
+        )}
+      </AnimatePresence>
+
+     <AnimatePresence>
+        {deleteModal && (
+          <Motion.div
+            className="fixed inset-0 z-50  flex items-center justify-center bg-black/30"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setDeleteModal(false)}
+          >
+           <DeleteGroup onClose={() => setDeleteModal(false)} groupId={selectedGroup.id}/>
+          </Motion.div>
+        )}
+      </AnimatePresence>
+      
+      <AnimatePresence>
+        {addContactModal && (
+          <Motion.div
+            className="fixed inset-0 z-50  flex items-center justify-center bg-black/30"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setAddContactModal(false)}
+          >
+           <AddContact onClose={() => setAddContactModal(false)} groupId={selectedGroup.id}/>
+          </Motion.div>
+        )}
+      </AnimatePresence>
+
+
     </div>
   )
 }

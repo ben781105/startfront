@@ -56,7 +56,7 @@ function SmsGroups() {
       <tbody>
         {groupList.length === 0 ? (
           <tr>
-            <td colSpan="4" className="text-center py-4">No groups found.</td>
+            <td colSpan="4" className="text-center py-4">Your groups will appear here.</td>
           </tr>
         ) : (
           groups.map((group) => (

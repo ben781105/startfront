@@ -143,7 +143,10 @@ const groupSlice = createSlice({
         if (index !== -1) {
         state.groups[index].contact_count += added_contacts.length; 
        }
-})
+        })
+        .addCase(addContactsToGroup.rejected, (state, action) => {
+        state.error = action.payload?.error || action.error.message;
+        })
 
     }
 })

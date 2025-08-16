@@ -1,14 +1,15 @@
-import React from 'react'
-import { FaBell } from 'react-icons/fa'
 
 import Statistics from './statistics'
 function HomeDashboard() {
+
   const metrics=[
     {id:1, name:'ACCOUNT BALANCE', value:'500'},
     {id:2, name:'SENT MESSAGES', value:'50'},
     {id:3, name:'FAILED MESSAGES', value:'42'},
     {id:4, name:'REMAINING MESSAGES', value:'2000'},
   ]
+
+
   return (
     <section className='flex-1  h-screen pt-0 p-6 space-y-5'>
       <div className='grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>

@@ -10,11 +10,7 @@ function Dashboard() {
       <section className=' relative flex-1 px-4 w-full h-full'> 
         <header className='flex items-center justify-between '>
         <span>Welcome Back , Benard 🎉</span>
-        <div className='flex items-center relative gap-4  p-2 rounded-lg w-[50%]'>
-          <input type="search" 
-          placeholder='Search anything'
-          className='p-2 rounded-lg border-1 w-90 border-gray-300 focus:outline-none focus:border-blue-500 transition-all duration-300 ease-in-out'
-          />
+        <div className='flex items-center relative gap-4  p-2 rounded-lg '>
           <div className="h-6 w-px bg-gray-300" />
           <FaBell/>
           <span className='flex items-center gap-2 cursor-pointer'>

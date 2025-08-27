@@ -22,7 +22,7 @@ function App(){
          <Route path="/dashboard/smshistory" element={<SmsHistory/>}/>
         </Route>
 
-        <Route path="/login" element={<LoginForm/>}/>
+        <Route path="/signin" element={<LoginForm/>}/>
         <Route path="/register" element={<RegisterForm/>}/>
        </Routes>
      </BrowserRouter>

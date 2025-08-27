@@ -1,10 +1,12 @@
-import { useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 import { Link, useNavigate} from "react-router-dom";
 import api from "../api";
 import { useState } from "react"
+import { toast } from "react-toastify";
 import { loginUser } from "../store/features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+
 const RegisterForm = () => {
 
   const navigate = useNavigate();
@@ -33,6 +35,9 @@ const RegisterForm = () => {
 
          await dispatch(loginUser({ username: data.username, password: data.password })).unwrap()
          navigate(from, { replace: true });
+
+         toast.success("Registration successful! Logged in.");
+
     }
     catch(error){
        const errorMessage =
@@ -42,6 +47,7 @@ const RegisterForm = () => {
         "registration failed, please try again later"
 
         setError(errorMessage)
+        toast.error(errorMessage)
     }
     
   };

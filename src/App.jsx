@@ -9,6 +9,8 @@ import SmsGroups from "./components/dashboard/smsgroups.jsx"
 import ComposeMessage from "./components/dashboard/composeMessage.jsx"
 import SendToGroup from "./components/dashboard/sendToGroup.jsx"
 import SmsHistory from "./components/dashboard/smsHistory.jsx"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 function App(){
    return (
      <BrowserRouter>
@@ -25,6 +27,8 @@ function App(){
         <Route path="/signin" element={<LoginForm/>}/>
         <Route path="/register" element={<RegisterForm/>}/>
        </Routes>
+
+        <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
      </BrowserRouter>
   )
 }

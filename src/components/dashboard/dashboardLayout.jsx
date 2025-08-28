@@ -12,7 +12,7 @@ function Dashboard() {
       <Sidebar/>
       <section className=' relative flex-1 px-4 w-full h-full'> 
         <header className='flex items-center justify-between '>
-        <span>Welcome Back , {user?.username}🎉</span>
+        <span>Welcome Back , {user?.first_name}🎉</span>
         <div className='flex items-center relative gap-4  p-2 rounded-lg '>
           <div className="h-6 w-px bg-gray-300" />
           <FaBell/>

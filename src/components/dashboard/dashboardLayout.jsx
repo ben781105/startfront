@@ -20,7 +20,7 @@ function Dashboard() {
             <img src={profile} alt="profile"
             className='w-10 h-10 rounded-full border-2 border-blue-500 cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out' 
             />
-            <span className='text-sm'>Benard</span>
+            <span className='text-sm'>{user?.username}</span>
           </span>
         </div>
       </header>

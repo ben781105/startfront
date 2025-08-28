@@ -10,7 +10,7 @@ export const loginUser = createAsyncThunk(
             const response = await api.post('token/', credentials)
             const {access, refresh,username} = response.data
 
-            toast.success(`Welcome Back ${username} Login successful!`)
+            toast.success(`Welcome Back ${username} , login successful!`)
 
             localStorage.setItem('access', access)
             localStorage.setItem('refresh', refresh)

@@ -30,13 +30,12 @@ const RegisterForm = () => {
             phone_number:data.phone_number,
         })
 
-        console.log(response.data)
-        alert(response.data.message)
+        
 
          await dispatch(loginUser({ username: data.username, password: data.password })).unwrap()
          navigate(from, { replace: true });
 
-         toast.success("Registration successful! Logged in.");
+         toast.success(response.data.message);
 
     }
     catch(error){

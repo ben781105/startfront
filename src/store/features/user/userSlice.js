@@ -1,21 +1,29 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import api from '../../../api';
 import { jwtDecode } from 'jwt-decode';
+import {toast} from 'react-toastify'
 
 export const loginUser = createAsyncThunk(
     'user/loginUser',
     async (credentials, {rejectWithValue}) =>{
         try{
             const response = await api.post('token/', credentials)
-            const {access, refresh} = response.data
+            const {access, refresh,username} = response.data
+
+            toast.success(`Welcome Back ${username} Login successful!`)
 
             localStorage.setItem('access', access)
             localStorage.setItem('refresh', refresh)
 
-            return jwtDecode(access)
+            return {
+                ...jwtDecode(access),
+                username
+            }
         }
         catch(error){
-            return rejectWithValue(error.response.data)
+            toast.error('Login failed. Please check your credentials.')
+            return rejectWithValue(error.response?.data)
+            
         }
         }
 
@@ -54,6 +62,7 @@ const userSlice = createSlice({
             state.isAuthenticated = false
             localStorage.removeItem('access')
             localStorage.removeItem('refresh')
+
         },
         loadUser(state){
             const token = localStorage.getItem('access')
@@ -66,6 +75,7 @@ const userSlice = createSlice({
                     localStorage.removeItem('refresh')
                     state.user = null
                     state.isAuthenticated = false
+                    
                 } else{
                     state.user =decoded
                     state.isAuthenticated =true
@@ -75,6 +85,7 @@ const userSlice = createSlice({
                    localStorage.removeItem('refresh');
                    state.user = null;
                    state.isAuthenticated = false
+                   
             }
         }
             
@@ -94,6 +105,7 @@ const userSlice = createSlice({
         .addCase(loginUser.rejected, (state,action) =>{
             state.error = action.payload
             state.loading = false
+            toast.error( action.payload?.message || 'Login failed. Please check your credentials.')
         })
         .addCase(refreshToken.fulfilled , (state,action)=>{
             state.user = action.payload
@@ -104,6 +116,7 @@ const userSlice = createSlice({
             state.isAuthenticated = false
             localStorage.removeItem('access')
             localStorage.removeItem('refresh')
+            toast.error('Session expired. Please login again.')
         });
     }
 })

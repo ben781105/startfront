@@ -30,8 +30,6 @@ const RegisterForm = () => {
             phone_number:data.phone_number,
         })
 
-        
-
          await dispatch(loginUser({ username: data.username, password: data.password })).unwrap()
          navigate(from, { replace: true });
 
@@ -143,7 +141,7 @@ const RegisterForm = () => {
         </button>
 
         <div className="mt-4 text-center">
-          <Link to="/login" className="text-blue-600 hover:underline text-sm">
+          <Link to="/signin" className="text-blue-600 hover:underline text-sm">
             Back to login
           </Link>
         </div>

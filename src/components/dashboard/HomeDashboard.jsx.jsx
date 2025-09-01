@@ -3,15 +3,17 @@ import Statistics from './statistics'
 function HomeDashboard() {
 
   const metrics=[
-    {id:1, name:'ACCOUNT BALANCE', value:'500'},
-    {id:2, name:'SENT MESSAGES', value:'50'},
-    {id:3, name:'FAILED MESSAGES', value:'42'},
-    {id:4, name:'REMAINING MESSAGES', value:'2000'},
+    {id:1, name:'ACCOUNT BALANCE', value:'2,500'},
+    {id:2, name:'SENT MESSAGES', value:'100'},
+    {id:3, name:'FAILED MESSAGES', value:'38'},
+    {id:4, name:'REMAINING MESSAGES', value:'200'},
+    {id:5, name:'CONTACTS', value:'34'},
+    {id:6, name:'PRICING', value:'Shs. 35 @sms'},
   ]
 
 
   return (
-    <section className='flex-1  h-screen pt-0 p-6 space-y-5'>
+    <section className='flex-1  mt-8 h-screen pt-0 p-6 space-y-5'>
       <div className='grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
         {metrics.map((metric)=>
        <div key={metric.id} className='flex  items-center justify-center bg-gray-200 shadow-md rounded-lg p-5 '>

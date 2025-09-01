@@ -41,7 +41,7 @@ function SmsHistory(){
               <td className="px-4 py-2 border border-gray-300">{sms.message}</td>
               <td className="px-4 py-2 border border-gray-300">{sms.number_of_recipients}</td>
               <td className="px-4 py-2 border border-gray-300">{sms.status}</td>
-              <td className="px-4 py-2 border border-gray-300">{sms.status === "Message sent successfully" ? "Sent" : "Message not ,try again"}</td>
+              <td className="px-4 py-2 border border-gray-300">{sms.status === "Message pending sending" ? "queued" : "Message not ,try again"}</td>
             </tr>
           ))}
         </tbody>

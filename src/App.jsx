@@ -11,17 +11,19 @@ import SendToGroup from "./components/dashboard/sendToGroup.jsx"
 import SmsHistory from "./components/dashboard/smsHistory.jsx"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import Contacts from "./components/dashboard/Contacts.jsx"
 function App(){
    return (
      <BrowserRouter>
        <Routes>
         <Route path="/" element={<Homepage/>}/>
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
          <Route index element={<HomeDashboard/>}/>
          <Route path="/dashboard/smsgroups" element={<SmsGroups/>}/>
          <Route path="/dashboard/messages/compose" element={<ComposeMessage/>}/>
          <Route path="/dashboard/messages/sendtogroup" element={<SendToGroup/>}/>
          <Route path="/dashboard/smshistory" element={<SmsHistory/>}/>
+         <Route path="/dashboard/contacts" element={<Contacts/>}/>
         </Route>
 
         <Route path="/signin" element={<LoginForm/>}/>

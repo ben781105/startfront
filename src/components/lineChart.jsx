@@ -17,8 +17,8 @@ const LineChart = () => {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [
       {
-        label: 'Sales',
-        data: [6000, 4500, 5200, 11340, 7400, 9600, 6600, 7700, 6900, 6900, 7000, 3200],
+        label: 'Messages Sent',
+        data: [10, 5, 12, 45, 22, 16, 15, 7, 13, 14, 29, 32],
         fill: true,
         borderColor: '#6366f1',
         backgroundColor: 'rgba(99, 102, 241, 0.1)',
@@ -34,7 +34,7 @@ const LineChart = () => {
       y: {
         beginAtZero: true,
         ticks: {
-          callback: (value) => `$${value.toLocaleString()}`,
+          callback: (value) => `${value.toLocaleString()}`,
         },
       },
     },
@@ -44,7 +44,7 @@ const LineChart = () => {
       },
       tooltip: {
         callbacks: {
-          label: (context) => `$${context.raw.toLocaleString()}`,
+          label: (context) => `${context.raw.toLocaleString()}`,
         },
       },
     },

@@ -8,17 +8,14 @@ export const loginUser = createAsyncThunk(
     async (credentials, {rejectWithValue}) =>{
         try{
             const response = await api.post('token/', credentials)
-            const {access, refresh,username} = response.data
+            const {access, refresh} = response.data
 
-            toast.success(`Welcome Back ${username} , login successful!`)
+            toast.success(`Welcome Back  , login successful!`)
 
             localStorage.setItem('access', access)
             localStorage.setItem('refresh', refresh)
 
-            return {
-                ...jwtDecode(access),
-                username
-            }
+            return jwtDecode(access)
         }
         catch(error){
             toast.error('Login failed. Please check your credentials.')

@@ -45,7 +45,7 @@ function Dashboard() {
         />
 
         <span className='flex items-center gap-3'>
-          <h3 className=' text-base md:text-xl text-gray-500'>{user.username}</h3>
+          <h3 className=' text-base md:text-xl text-gray-500'>{(user.username).toUpperCase()}</h3>
           <FaUserLock className=' text-blue-500'/>
         </span>
         <div className='flex items-center relative gap-4  p-2 rounded-lg '>

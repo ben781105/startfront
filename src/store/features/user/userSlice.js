@@ -49,7 +49,7 @@ const userSlice = createSlice({
     name: 'user',
     initialState:{
         user:null,
-        isAuthenticated:false,
+        isAuthenticated:!!localStorage.getItem("access"),
         loading:false,
         error:null
     },

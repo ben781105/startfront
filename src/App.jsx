@@ -20,7 +20,7 @@ function App(){
      <BrowserRouter>
        <Routes>
         <Route path="/" element={<Homepage/>}/>
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
          <Route index element={<HomeDashboard/>}/>
          <Route path="/dashboard/smsgroups" element={<SmsGroups/>}/>
          <Route path="/dashboard/messages/compose" element={<ComposeMessage/>}/>

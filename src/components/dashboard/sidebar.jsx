@@ -1,10 +1,10 @@
 import {
-  FaCog,
+  FaAddressBook,
   FaEnvelope,
+  FaListAlt,
   FaMoneyBill,
   FaPenSquare,
-  FaPowerOff,
-  FaQuestionCircle,
+  FaDoorOpen,
   FaUsers,
 } from 'react-icons/fa';
 import { motion as Motion } from 'framer-motion';
@@ -22,10 +22,10 @@ function Sidebar({openSidebar , setOpenSidebar, setLogout}) {
   const links = [
     { id: 1, name: 'Dashboard', route: '/dashboard', icon: FaPenSquare },
     { id: 2, name: 'Message', route: '/dashboard/messages', icon: FaEnvelope }, // dropdown
-    { id: 3, name: 'Contacts', route: '/dashboard/contacts', icon: FaMoneyBill },
+    { id: 3, name: 'Contacts', route: '/dashboard/contacts', icon: FaAddressBook },
     { id: 4, name: 'Sms Groups', route: '/dashboard/smsgroups', icon: FaUsers },
-    { id: 5, name: 'Sms History', route: '/dashboard/smshistory', icon: FaQuestionCircle },
-    { id: 6, name: 'Payments', route: '/dashboard/payments', icon: FaCog },
+    { id: 5, name: 'Sms History', route: '/dashboard/smshistory', icon: FaListAlt},
+    { id: 6, name: 'Payments', route: '/dashboard/payments', icon: FaMoneyBill },
   ];
 
   const messageDropdownLinks = [
@@ -113,7 +113,7 @@ function Sidebar({openSidebar , setOpenSidebar, setLogout}) {
       <p
       onClick={() => setLogout(true)}
        className="flex items-center mt-20 gap-3 text-lg cursor-pointer px-8 py-2">
-        <FaPowerOff /> Logout
+        <FaDoorOpen /> Logout
       </p>
 
 

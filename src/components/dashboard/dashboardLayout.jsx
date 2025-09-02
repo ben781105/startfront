@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from './sidebar'
 import { Outlet } from 'react-router-dom'
-import { FaBell } from 'react-icons/fa'
+import { FaBell,FaUserLock } from 'react-icons/fa'
 import profile from '../../assets/images/sarah.png'
 import menu from '../../assets/svgs/blue-menu.svg';  
 import { useState } from 'react'
@@ -44,7 +44,10 @@ function Dashboard() {
         onClick={() => setOpenSidebar(!openSidebar)}
         />
 
-        <span>Welcome Back , {user.username}🎉</span>
+        <span>
+          <h3 className=' text-base md:text-xl text-gray-500'>{user.username}</h3>
+          <FaUserLock className=' text-blue-500'/>
+        </span>
         <div className='flex items-center relative gap-4  p-2 rounded-lg '>
           <div className="h-6 w-px bg-gray-300" />
           <FaBell/>

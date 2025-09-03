@@ -54,8 +54,9 @@ const messageSlice = createSlice({
         error:false,
         success:false,
         history:[],
-        currentPage:1,
-        totalPages:1,
+        next:null,
+        previous:null,
+        count:0,
     },
     reducers:{},
     extraReducers:(builder)=>{
@@ -81,8 +82,9 @@ const messageSlice = createSlice({
         .addCase(fetchSMSHistory.fulfilled,(state,action)=>{
             state.loading = false
             state.history = action.payload.results
-            state.currentPage = action.payload.current_page
-            state.totalPages = action.payload.total_pages
+            state.next = action.payload.next;     
+            state.previous = action.payload.previous; 
+            state.count = action.payload.count; 
         })
         .addCase(fetchSMSHistory.rejected,(state,action)=>{
             state.loading = false

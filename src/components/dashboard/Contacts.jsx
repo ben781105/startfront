@@ -6,8 +6,9 @@ import { fetchContacts } from '../../store/features/contacts/contactSlice'
 function Contacts() {
     
     const dispatch = useDispatch()
-    const { results} = useSelector((state) => state.contact)
+    const { results,next,previous,page,page_size} = useSelector((state) => state.contact)
     const [search, setSearch] = useState("")
+    
     
 
     useEffect(() => {
@@ -15,7 +16,7 @@ function Contacts() {
         }, [dispatch,search])
 
   return (
-    <div className='flex gap-5 flex-col mt-6'>
+    <div className='flex gap-5 flex-col mt-6 mb-8'>
 
         <input
         type="text"
@@ -37,7 +38,7 @@ function Contacts() {
         <tbody>
           {results.map((contact, index) => (
             <tr key={contact.id} className=" text-gray-800">
-              <td className="px-4 py-2 border border-gray-500">{index + 1}</td>
+              <td className="px-4 py-2 border border-gray-500">   {(page - 1) * page_size + (index + 1)}</td>
               <td className="px-4 py-2 border border-gray-500">{contact.phone_number}</td>
               <td className="px-4 py-2 border border-gray-500">{contact.created_at}</td>
             </tr>
@@ -45,6 +46,24 @@ function Contacts() {
         </tbody>
       </table>
     </div>
+
+    <div className="flex justify-between mt-4">
+  <button
+    onClick={() => dispatch(fetchContacts({ url: previous }))}
+    disabled={!previous}
+    className={`px-4 py-2 rounded-md ${previous ? "bg-gray-800 text-white" : "bg-gray-300 text-gray-600 cursor-not-allowed"}`}
+  >
+    Previous
+  </button>
+
+  <button
+    onClick={() => dispatch(fetchContacts({ url: next }))}
+    disabled={!next}
+    className={`px-4 py-2 rounded-md ${next ? "bg-gray-800 text-white" : "bg-gray-300 text-gray-600 cursor-not-allowed"}`}
+  >
+    Next
+  </button>
+</div>
     </div>
   )
 }

@@ -5,14 +5,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchContacts = createAsyncThunk(
     'contact/fetchContacts',
-    async ({search='',page=1},{ rejectWithValue }) => {
+    async ({search='',page=1,url=null},{ rejectWithValue }) => {
         try{
-            const response = await api.get('contact_list/',{
-                params:{search,page}
-            })
-             console.log(response.data)
-            return response.data
-           
+        const response = url
+        ? await api.get(url) 
+        : await api.get('contact_list/', { params: { search, page } })
+         return response.data 
         }
         catch(error){
             return rejectWithValue(error.response?.data)
@@ -24,6 +22,8 @@ const contactSlice = createSlice({
   name: 'contact',
   initialState: {
     results: [],
+    page_size: null,
+    page: null,
     count: 0,  
     next: null,
     previous: null,
@@ -42,6 +42,8 @@ const contactSlice = createSlice({
         state.count = action.payload.count;
         state.next = action.payload.next;
         state.previous = action.payload.previous;
+        state.page_size = action.payload.page_size;
+        state.page = action.payload.page;
       })
       .addCase(fetchContacts.rejected, (state, action) => {
         state.status = "failed";

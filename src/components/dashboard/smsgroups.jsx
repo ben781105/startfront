@@ -9,7 +9,7 @@ import AddContact from "./addContact"
 
 function SmsGroups() {
   const dispatch = useDispatch()
-  const { groups, error } = useSelector((state) => state.group)
+  const { groups, error, page, previous, next } = useSelector((state) => state.group)
   const groupList = Array.isArray(groups) ? groups : []
 
   const [createModal ,setCreateModal] = useState(false)
@@ -25,12 +25,12 @@ function SmsGroups() {
   }, [dispatch, search]) 
 
   return (
-    <div className="mt-4 ">
-      <div className="w-full flex items-center justify-between">
+    <div className="mt-4 mb-8">
+      <div className="w-full flex flex-col sm:flex-row gap-3 justify-between">
         <button 
         onClick={() => setCreateModal(true)}
-        className="bg-blue-500 text-white h-10 py-2 px-6 rounded-md">
-        Create New Group
+        className="bg-blue-500 w-[50%] sm:w-[30%] md:w-[20%] text-white h-10 py-2 px-6 rounded-md">
+        Create Group
       </button>
 
       <input
@@ -42,14 +42,13 @@ function SmsGroups() {
       />
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 overflow-x-auto">
         {error && <p>{error.message}</p>}
         <table className="min-w-full table-auto border-collapse border border-gray-300">
       <thead>
         <tr className="bg-gray-100">
           <th className="border border-gray-300 px-4 py-2 cursor-pointer">Group Name</th>
-          <th className="border border-gray-300 px-4 py-2 cursor-pointer">Type</th>
-          <th className="border border-gray-300 px-4 py-2 cursor-pointer">Number of Contacts</th>
+          <th className="border border-gray-300 px-4 py-2 cursor-pointer">Contacts</th>
           <th className="border border-gray-300 px-4 py-2">Actions</th>
         </tr>
       </thead>
@@ -62,22 +61,17 @@ function SmsGroups() {
           groups.map((group) => (
             <tr key={group.id} className="hover:bg-gray-50">
               <td className="border border-gray-300 px-4 py-2">{group.name}</td>
-              <td className="border border-gray-300 px-4 py-2">
-                <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">
-                  Local (Uganda)
-                </span>
-              </td>
-              <td className="border border-gray-300 px-4 py-2">
+              <td className="border  border-gray-300 px-4 py-2">
                 <a href="#" className="text-blue-600 hover:underline">{group.contact_count}</a>
               </td>
-              <td className="border border-gray-300 px-4 py-2 space-x-2">
+              <td className="border flex items-center border-gray-300 px-4 py-2 space-x-2">
                 <button 
                 onClick={() =>{ 
                   setEditModal(true)
                   setSelectedGroup(group)
                 }}
-                className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded">Edit</button>
-                <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+                className="bg-yellow-400 hover:bg-yellow-500 text-white w-fit h-fit px-4 py-2 rounded">Edit</button>
+                <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded"
                 onClick={() => {
                   setDeleteModal(true)
                   setSelectedGroup(group)
@@ -90,8 +84,8 @@ function SmsGroups() {
                   setAddContactModal(true)
                   setSelectedGroup(group)
                 }}
-                 className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
-                >Add Contact</button>
+                 className="bg-green-500 hover:bg-green-600 text-white w-fit h-fit px-8 py-2 rounded"
+                >Contact</button>
               </td>
             </tr>
           ))
@@ -99,6 +93,24 @@ function SmsGroups() {
       </tbody>
     </table>
       </div>
+
+      <div className="flex justify-between gap-2 mt-4">
+  <button
+    disabled={!previous}
+    onClick={() => dispatch(fetchGroups({ search, page: page - 1 }))}
+    className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+  >
+    Previous
+  </button>
+  <button
+    disabled={!next}
+    onClick={() => dispatch(fetchGroups({ search, page: page + 1 }))}
+    className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+  >
+    Next
+  </button>
+</div>
+
 
          <AnimatePresence>
         {createModal && (

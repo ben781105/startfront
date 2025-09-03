@@ -8,7 +8,6 @@ export const fetchGroups = createAsyncThunk(
             const response = await api.get('groups/',{
                 params:{search,page}
             })
-             console.log(response.data)
             return response.data
            
         }
@@ -86,6 +85,8 @@ const groupSlice = createSlice({
       count:0,
       next:null,
       previous:null,
+      page_size:10,
+      page:1,
     
     },
     reducers:{},

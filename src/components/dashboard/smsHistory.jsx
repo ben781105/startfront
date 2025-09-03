@@ -3,7 +3,7 @@ import { useState ,useEffect} from "react"
 import { fetchSMSHistory } from "../../store/features/message/messageSlice"
 
 function SmsHistory(){
-    const {history} = useSelector((state)=> state.message)
+    const {history, previous, next} = useSelector((state)=> state.message)
     const [search, setSearch] = useState("")
     const dispatch = useDispatch()
 
@@ -16,7 +16,7 @@ function SmsHistory(){
     dispatch(fetchSMSHistory({ page, search }));
   };*/
     return(
-    <div className="flex flex-col mt-6">
+    <div className="flex flex-col mt-6 mb-8">
      <input 
      onChange={(e) => setSearch(e.target.value)}
      type="text" 
@@ -47,6 +47,24 @@ function SmsHistory(){
         </tbody>
       </table>
     </div>
+
+    <div className="flex justify-between gap-2 mt-4">
+  <button
+    disabled={!previous}
+    onClick={() => dispatch(fetchSMSHistory({ search}))}
+    className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+  >
+    Previous
+  </button>
+  <button
+    disabled={!next}
+    onClick={() => dispatch(fetchSMSHistory({ search}))}
+    className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+  >
+    Next
+  </button>
+</div>
+
 
 
      

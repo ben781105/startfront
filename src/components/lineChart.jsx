@@ -24,7 +24,7 @@ const LineChart = () => {
         backgroundColor: 'rgba(99, 102, 241, 0.1)',
         tension: 0.4,
         pointBackgroundColor: '#10b981',
-        pointRadius: 5,
+        pointRadius:5,
       },
     ],
   };
@@ -50,7 +50,7 @@ const LineChart = () => {
     },
   };
 
-  return <Line data={data} options={options}  />;
+  return <Line data={data} options={options} />;
 };
 
 export default LineChart;

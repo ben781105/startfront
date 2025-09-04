@@ -115,7 +115,7 @@ function SmsGroups() {
          <AnimatePresence>
         {createModal && (
           <Motion.div
-            className="fixed inset-0 z-50  flex items-center justify-center bg-black/30"
+            className="fixed inset-0 z-50  px-4 py-4  flex items-center justify-center bg-black/30"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -129,7 +129,7 @@ function SmsGroups() {
         <AnimatePresence>
         {editModal && (
           <Motion.div
-            className="fixed inset-0 z-50  flex items-center justify-center bg-black/30"
+            className="fixed inset-0 z-50 p-4  flex items-center justify-center bg-black/30"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -143,7 +143,7 @@ function SmsGroups() {
      <AnimatePresence>
         {deleteModal && (
           <Motion.div
-            className="fixed inset-0 z-50  flex items-center justify-center bg-black/30"
+            className="fixed inset-0 z-50 p-4 flex items-center justify-center bg-black/30"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -157,7 +157,7 @@ function SmsGroups() {
       <AnimatePresence>
         {addContactModal && (
           <Motion.div
-            className="fixed inset-0 z-50  flex items-center justify-center bg-black/30"
+            className="fixed inset-0 z-50 p-4 flex items-center justify-center bg-black/30"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

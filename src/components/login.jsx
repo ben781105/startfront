@@ -5,7 +5,7 @@ import { loginUser } from "../store/features/user/userSlice";
 import { useEffect } from "react";
 const LoginForm = () => {
 
-    const {error,isAuthenticated} = useSelector((state) => state.user)
+    const {error,isAuthenticated,loading} = useSelector((state) => state.user)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-400">
+    <section className="min-h-screen flex flex-col gap-12 pb-8 px-4 items-center justify-center bg-gradient-to-br from-blue-800 to-blue-400">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white rounded-lg shadow-lg p-8 w-90"
@@ -101,7 +101,10 @@ const LoginForm = () => {
           </button>
         </div>
       </form>
-    </div>
+      {loading && (
+        <div className="loader"></div>
+      )}
+    </section>
   );
 };
 

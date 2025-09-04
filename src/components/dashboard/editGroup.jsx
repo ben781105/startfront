@@ -1,11 +1,11 @@
 import {motion as Motion} from 'framer-motion'
 import {useForm} from 'react-hook-form'
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector} from 'react-redux';
 import { editGroup } from '../../store/features/group/groupSlice';
 
 
 function Editgroup({onClose,groupId,currentName}){
-
+    const {loading} = useSelector((state) => state.group);
     
      const {
     register,
@@ -24,7 +24,6 @@ function Editgroup({onClose,groupId,currentName}){
    const onSubmit = (data) => {
       dispatch(editGroup({id:groupId,name:data.groupName}));
       reset();
-      onClose()
     };
     
      const groupValue = watch("groupName");
@@ -77,8 +76,8 @@ function Editgroup({onClose,groupId,currentName}){
         <button 
           type='submit'
 
-          className={`${isValid?'bg-blue-500 cursor-pointer':'bg-gray-300 cursor-not-allowed text-gray-500'} w-[30%] text-white self-end py-2 mt-4 rounded-md font-semibold`}>
-            Save Changes
+          className={`${isValid?'bg-blue-500 cursor-pointer':'bg-gray-300 cursor-not-allowed text-gray-500'} w-[40%] text-white self-end py-2 mt-4 rounded-md font-semibold`}>
+            {loading ? 'Saving...' : 'Save Changes'}
           </button>
         </div>
           </form>

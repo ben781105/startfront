@@ -1,10 +1,11 @@
 import {motion as Motion} from 'framer-motion'
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { deleteGroup } from '../../store/features/group/groupSlice';
 import { fetchGroups } from '../../store/features/group/groupSlice';
 function DeleteGroup({onClose,groupId}){
 
     const dispatch = useDispatch();
+    const {loading} = useSelector((state) => state.group);
 
     return (
         <Motion.div
@@ -31,7 +32,7 @@ function DeleteGroup({onClose,groupId}){
                 onClose();
               }}
               className="text-white bg-red-500 px-4 py-2 rounded-md">
-                Delete
+                {loading? 'Deleting...':'Delete'}
               </button>
              </span>
            </Motion.div>

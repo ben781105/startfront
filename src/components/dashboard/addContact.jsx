@@ -1,10 +1,11 @@
 import {motion as Motion} from 'framer-motion'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
+import { useDispatch ,useSelector} from 'react-redux'
 import { addContactsToGroup, fetchGroups } from '../../store/features/group/groupSlice'
 function AddContact({onClose,groupId}){
 
     const dispatch = useDispatch();
+    const {loading} = useSelector((state) => state.group);
     
     const {
     register,
@@ -36,7 +37,6 @@ function AddContact({onClose,groupId}){
     dispatch(addContactsToGroup({ groupId, phoneNumbers: phoneNumbersArray }));
     dispatch(fetchGroups({search:"",page:1}));
     reset();
-    onClose();
   };
 
 
@@ -71,7 +71,7 @@ function AddContact({onClose,groupId}){
 
         <div className='flex gap-2 items-end justify-end mt-10'>
             <button
-            disabled={!isValid}
+            onClick={onClose}
             className='text-white bg-gray-400 px-4 py-2 rounded-md'
             >
               Close
@@ -81,7 +81,7 @@ function AddContact({onClose,groupId}){
             type='submit'
             className={`text-white ${isValid? 'bg-blue-500':'bg-gray-400 cursor-not-allowed'} px-4 py-2 rounded-md`}
             >
-             Add Contact
+             {loading? 'Adding...':'Add Contact'}
             </button>
         </div>
       </form>

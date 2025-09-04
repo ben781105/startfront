@@ -14,6 +14,7 @@ const RegisterForm = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/dashboard';
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
 
   const {
@@ -24,6 +25,7 @@ const RegisterForm = () => {
 
   const onSubmit = async (data) => {
     try{
+        setLoading(true)
         const response = await api.post('register/',{
             username: data.username,
             password: data.password,
@@ -31,8 +33,9 @@ const RegisterForm = () => {
         })
 
          await dispatch(loginUser({ username: data.username, password: data.password })).unwrap()
-         navigate(from, { replace: true });
+         navigate(from, { replace: true }); 
 
+          setLoading(false)
          toast.success(response.data.message);
 
     }
@@ -50,7 +53,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-400">
+    <section className="min-h-screen flex flex-col gap-12 items-center justify-center bg-gradient-to-br from-blue-800 to-blue-400">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white rounded-lg shadow-lg p-8 w-[380px]"
@@ -146,7 +149,11 @@ const RegisterForm = () => {
           </Link>
         </div>
       </form>
-    </div>
+
+      {loading && (
+        <div className="loader"></div>
+      )}
+    </section>
   );
 };
 

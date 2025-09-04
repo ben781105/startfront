@@ -1,6 +1,6 @@
 import {motion as Motion} from 'framer-motion'
 import {useForm} from 'react-hook-form'
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { createGroup } from '../../store/features/group/groupSlice';
 function GroupModal({onClose}){
 
@@ -16,11 +16,10 @@ function GroupModal({onClose}){
   });
 
   const dispatch = useDispatch(); 
-
+  const {loading} = useSelector((state) => state.group);
   const onSubmit = (data) => {
     dispatch(createGroup(data.groupName));
     reset();
-    onClose()
   };
   
    const groupValue = watch("groupName");
@@ -32,7 +31,7 @@ function GroupModal({onClose}){
         animate={{opacity:1,scale:1,y:0}}
         exit={{opacity:0,scale:0.8,y:-50}}
         transition={{duration:0.3}}
-        className="bg-white rounded-lg shadow-lg p-6 w-full h-60 max-w-md"
+        className="bg-white rounded-lg shadow-lg p-6 w-full h-60  max-w-md"
         >
          <h1 className="text-xl font-semibold ">Create New Group</h1>
          
@@ -74,8 +73,8 @@ function GroupModal({onClose}){
         <button 
           type='submit'
 
-          className={`${isValid?'bg-blue-500 cursor-pointer':'bg-gray-300 cursor-not-allowed text-gray-500'} w-[30%] text-white self-end py-2 mt-4 rounded-md font-semibold`}>
-            Create Group
+          className={`${isValid?'bg-blue-500 cursor-pointer':'bg-gray-300 cursor-not-allowed text-gray-500'} w-[40%] text-white self-end py-2 mt-4 rounded-md font-semibold`}>
+            {loading ? 'Creating...' : 'Create Group'}
           </button>
         </div>
           </form>

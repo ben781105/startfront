@@ -47,22 +47,22 @@ function AddContact({onClose,groupId}){
      exit={{opacity:0,scale:0.8,y:-50}}
      transition={{duration:0.3}}
      onClick={(e) => e.stopPropagation()}
-     className="bg-white rounded-md shadow-lg p-4  w-full h-fit max-w-lg">
-      <h1 className='text-2xl font-semibold'>Add Contact to Group</h1>
-      <span className='mt-6 text-base bg-green-300 pl-8 pr-3 py-3 text-teal-900 flex items-center rounded-md'>
+     className="bg-white dark:bg-[#100d25] rounded-md shadow-lg p-4  w-full h-fit max-w-lg">
+      <h1 className='text-2xl font-semibold dark:text-[#ffffff] '>Add Contact to Group</h1>
+      <span className='mt-6 text-base dark:bg-[#151030] pl-8 pr-3 py-3 dark:text-[#ffffff] flex items-center rounded-md'>
         Enter local Ugandan numbers (e.g. 0759647223)
       </span>
       <form
       onSubmit={handleSubmit(onSubmit)}
-       className='mt-6 flex flex-col'>
+       className='mt-6 flex flex-col dark:text-[#ffffff]'>
         <div className='flex flex-col gap-2'>
-            <label className='text-base '>Phone numbers</label>
+            <label className='text-bas dark:text-[#ffffff] '>Phone numbers</label>
             <textarea 
              {...register("phone_numbers", {
               required: "Phone numbers are required",
               validate: validateNumbers,
             })}
-            className=" w-full h-35 p-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-blue-400 transition-all duration-500 ease-in-out"
+            className=" w-full h-35 p-3 rounded-md border-2 border-gray-300 focus:outline-none focus:border-[#915eff] transition-all duration-500 ease-in-out"
             placeholder="Enter local numbers (e.g. 0759647223, 0775647361)"
             />
             {errors.phone_numbers &&
@@ -79,7 +79,7 @@ function AddContact({onClose,groupId}){
 
             <button
             type='submit'
-            className={`text-white ${isValid? 'bg-blue-500':'bg-gray-400 cursor-not-allowed'} px-4 py-2 rounded-md`}
+            className={`text-white ${isValid? 'bg-[#915eff]':'bg-gray-400 cursor-not-allowed'} px-4 py-2 rounded-md`}
             >
              {loading? 'Adding...':'Add Contact'}
             </button>

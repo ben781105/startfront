@@ -26,9 +26,9 @@ function ConfirmLogout({onClose}){
          exit={{opacity:0,scale:0.8,y:-50}}
          transition={{duration:0.3}}
          onClick={(e) => e.stopPropagation()}
-         className="bg-white rounded-md shadow-lg pl-6 pr-4 py-4 w-full h-60 max-w-md">
-             <h1 className='text-2xl font-semibold'>Log out</h1>
-             <p className='mt-6 text-lg'>Are you sure you want to log out?</p>
+         className="bg-white dark:bg-[#100d25] rounded-md shadow-lg pl-6 pr-4 py-4 w-full h-60 max-w-md">
+             <h1 className='text-2xl font-semibold dark:text-[#ffffff]'>Log out</h1>
+             <p className='mt-6 text-lg dark:text-[#848298]'>Are you sure you want to log out?</p>
              <span className="flex gap-2 mt-15 items-end justify-end">
               <button 
               onClick={onClose}

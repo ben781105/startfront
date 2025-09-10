@@ -36,8 +36,8 @@ const DoughnutChart = () => {
     <div className="relative w-full h-full flex items-center justify-center">
       <Doughnut data={data} options={options} />
       <div className="absolute text-center">
-        <p className="text-xl font-bold">{totalMessages}</p>
-        <p className="text-sm text-gray-500">Messages</p>
+        <p className="text-xl font-bold dark:text-[#ffffff] ">{totalMessages}</p>
+        <p className="text-sm dark:text-[#ffffff]">Messages</p>
       </div>
     </div>
   );

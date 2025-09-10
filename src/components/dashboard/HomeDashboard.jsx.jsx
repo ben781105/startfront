@@ -13,13 +13,13 @@ function HomeDashboard() {
 
 
   return (
-    <section className='flex-1   mt-8 h-screen pt-0 p-3 space-y-5'>
+    <section className='flex-1 dark:bg-[#050816]  mt-8 h-screen pt-0 p-3 space-y-5'>
       <div className='grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
         {metrics.map((metric)=>
-       <div key={metric.id} className='flex  items-center h-30   bg-gray-200 shadow-md rounded-lg p-5 '>
-        <span className=' border-l-2 pl-2 border-l-green-500 flex flex-col'>
-          <h1 className='text-base '>{metric.name}</h1>
-          <p className='text-2xl font-semibold'>{metric.value}</p>
+       <div key={metric.id} className='flex border-l-3 d border-[#915eff] dark:bg-[#151030] items-center h-30   bg-gray-200 shadow-md rounded-lg p-5 '>
+        <span className='flex flex-col gap-3'>
+          <h1 className=' xs:text-lg sm:text-xl dark:text-[#ffffff]'>{metric.name}</h1>
+          <p className='xs:text-xl sm:text-2xl dark:text-[#ffffff] font-semibold'>{metric.value}</p>
         </span>
        </div>
       )}

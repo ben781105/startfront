@@ -19,13 +19,13 @@ function ComposeMessage() {
   };
 
   return (
-    <div className="border border-gray-300 rounded-md p-4 shadow-lg mt-6">
-      <h2 className="text-xl font-semibold">Local phone Numbers (comma separated)</h2>
-      <p className="text-blue-400 mt-4">
+    <div className="border border-[#915eff] rounded-md p-4 shadow-lg mt-6">
+      <h2 className="text-lg dark:text-[#ffffff] font-semibold">Local phone Numbers (comma separated)</h2>
+      <p className="text-[#915eff] mt-4">
         Note: correct format is 0703875367,0784637833
       </p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-1">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-1 dark:text-[#ffffff]">
         <div className="flex flex-col space-y-4">
           <textarea
             {...register("phoneNumbers", { 
@@ -35,7 +35,7 @@ function ComposeMessage() {
                 message: "Oops Invalid phone number format"
               }
             })}
-            className="w-full h-30 p-3 rounded-md border-1 border-gray-300 focus:outline-none focus:border-blue-500 transition-all duration-300 ease-in-out"
+            className="w-full h-30 p-3 rounded-md border-1 border-gray-300 focus:outline-none focus:border-[#915eff] transition-all duration-300 ease-in-out"
             placeholder="Enter local phone numbers"
           />
           {errors.phoneNumbers && (
@@ -45,7 +45,7 @@ function ComposeMessage() {
           <textarea
             {...register("message", { required: "Message is required" })}
             placeholder="Enter message"
-            className="w-full h-30 p-3 rounded-md border-1 border-gray-300 focus:outline-none focus:border-blue-500 transition-all duration-300 ease-in-out"
+            className="w-full h-30 p-3 rounded-md border-1 border-gray-300 focus:outline-none focus:border-[#915eff] transition-all duration-300 ease-in-out"
           />
           {errors.message && (
             <p className="text-red-500 text-sm">{errors.message.message}</p>
@@ -54,7 +54,7 @@ function ComposeMessage() {
 
         <button
           type="submit"
-          className="text-white bg-blue-500 px-4 py-2 rounded-md mt-10 w-40"
+          className='mt-8 w-[50%] md:w-[20%] shadow-md  shadow-[#ffffff] dark:shadow-[#050816] px-2 py-2 2xl:px-10 2xl:py-5 2xl:text-2xl bg-[#915eff] dark:bg-[#151030] font-semibold text-white dark:hover:bg-[#848298] transition-colors duration-400 ease-in-out rounded-md'
         >
           Send Message
         </button>

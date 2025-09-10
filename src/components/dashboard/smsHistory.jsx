@@ -22,13 +22,13 @@ function SmsHistory(){
      type="text" 
      value={search}
      placeholder="Search....."
-     className="p-2 rounded-md border-1 w-60  self-end border-gray-300 focus:outline-none focus:border-blue-500 transition-all duration-300 ease-in-out"
+     className="p-2 rounded-md border-1 w-60  self-end border-gray-300 dark:text-[#ffffff] focus:outline-none transition-all duration-300 ease-in-out"
      />
 
     <div className="overflow-x-auto mt-6">
-      <table className="min-w-full bg-white border border-gray-200 text-gray-800">
+      <table className="min-w-full bg-white dark:bg-[#050816] border border-gray-200 dark:text-[#ffffff]">
         <thead className="">
-          <tr className="text-semibold ">
+          <tr className="text-semibold  dark:bg-[#848298]">
             <th className="px-4 py-2 border border-gray-300 ">Message</th>
             <th className="px-4 py-2 border border-gray-300">Contacts Count</th>
             <th className="px-4 py-2 border border-gray-300">Status</th>

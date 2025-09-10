@@ -6,13 +6,12 @@ import {
   FaPenSquare,
   FaDoorOpen,
   FaUsers,
+  FaTimes,
+  FaAngleRight
 } from 'react-icons/fa';
-import { motion as Motion } from 'framer-motion';
-import cancel from '../../assets/svgs/cancel.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useRef} from 'react';
-import dropdown from '../../assets/svgs/forward.svg'
-//import ConfirmLogout from './ConfirmLogout';
+
 
 function Sidebar({openSidebar , setOpenSidebar, setLogout}) {
   const [messageDropdownOpen, setMessageDropdownOpen] = useState(false);
@@ -38,7 +37,7 @@ function Sidebar({openSidebar , setOpenSidebar, setLogout}) {
   return (
       <section
       className={`
-        fixed top-0 left-0 min-h-screen w-64  bg-blue-950 text-white pt-5 z-50 
+        fixed top-0 left-0 min-h-screen w-64 bg-[#090325] text-white pt-5 z-50 
         transform transition-transform duration-300 ease-in-out
         ${openSidebar ? "translate-x-0" : "-translate-x-full"}
         md:static md:translate-x-0 
@@ -46,11 +45,11 @@ function Sidebar({openSidebar , setOpenSidebar, setLogout}) {
     >
       <h1 className="text-3xl font-bold mb-6 px-8">SEND IT</h1>
       <ul className="flex flex-col gap-4">
-        <img 
-          src={cancel} 
+        <FaTimes 
+          
           alt=""  
-          width={35}
-           className='md:hidden cursor-pointer absolute top-6 right-4'
+          size={33}
+           className='md:hidden cursor-pointer absolute top-5 right-4'
           onClick={() => setOpenSidebar(!openSidebar)}
         />
         {links.map((link) => {
@@ -63,14 +62,14 @@ function Sidebar({openSidebar , setOpenSidebar, setLogout}) {
                ref={messageDropdownRef}>
                 <button
                   onClick={() => setMessageDropdownOpen(prev => !prev)}
-                  className="flex items-center justify-between gap-3 text-lg w-full cursor-pointer hover:bg-blue-800 px-8 py-2 rounded"
+                  className="flex items-center justify-between gap-3 text-lg w-full cursor-pointer dark:hover:bg-[#151030]  px-8 py-2 rounded"
                 >
                   <span className="flex items-center gap-3">
                     {Icon && <Icon />}
                     {link.name}
                   </span>
                   <span className={`transition-transform ${messageDropdownOpen ? "rotate-90" : ""}`}>
-                    <img src={dropdown} alt="" width={25} />
+                    <FaAngleRight alt="dropdown" width={25} />
                   </span>
                 </button>
 
@@ -84,7 +83,7 @@ function Sidebar({openSidebar , setOpenSidebar, setLogout}) {
                           setMessageDropdownOpen(false);
                           setOpenSidebar(false);
                         }}
-                        className="cursor-pointer hover:bg-blue-800 px-14 py-1 rounded text-sm"
+                        className="cursor-pointer dark:hover:bg-[#151030] px-14 py-2 rounded text-sm"
                       >
                         {item.label}
                       </li>
@@ -101,7 +100,7 @@ function Sidebar({openSidebar , setOpenSidebar, setLogout}) {
               to={link.route}
               key={link.id}
               onClick={() => setOpenSidebar(!openSidebar)}
-              className="flex items-center gap-3 text-lg cursor-pointer hover:bg-blue-800 px-8 py-2 rounded"
+              className="flex items-center gap-3 text-lg cursor-pointer dark:hover:bg-[#151030]  px-8 py-2 rounded"
             >
               {Icon && <Icon />}
               {link.name}

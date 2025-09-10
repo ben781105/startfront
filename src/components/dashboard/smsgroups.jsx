@@ -29,7 +29,7 @@ function SmsGroups() {
       <div className="w-full flex flex-col sm:flex-row gap-3 justify-between">
         <button 
         onClick={() => setCreateModal(true)}
-        className="bg-blue-500 w-[50%] sm:w-[30%] md:w-[20%] text-white h-10 py-2 px-6 rounded-md">
+        className='w-[40%] md:w-[20%] shadow-md  shadow-[#ffffff] dark:shadow-[#050816] px-2 py-2 2xl:px-10 2xl:py-5 2xl:text-2xl bg-[#915eff] dark:bg-[#151030] font-semibold text-white dark:hover:bg-[#848298] transition-colors duration-400 ease-in-out rounded-md'>
         Create Group
       </button>
 
@@ -38,7 +38,7 @@ function SmsGroups() {
         placeholder="Search ....."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="border border-gray-300 rounded-md focus:outline-none px-2  h-10 "
+        className="border border-gray-300 dark:text-[#ffffff] rounded-md focus:outline-none px-2  h-10 "
       />
       </div>
 
@@ -46,7 +46,7 @@ function SmsGroups() {
         {error && <p>{error.message}</p>}
         <table className="min-w-full table-auto border-collapse border border-gray-300">
       <thead>
-        <tr className="bg-gray-100">
+        <tr className="bg-[#848298] dark:text-[#ffffff]">
           <th className="border border-gray-300 px-4 py-2 cursor-pointer">Group Name</th>
           <th className="border border-gray-300 px-4 py-2 cursor-pointer">Contacts</th>
           <th className="border border-gray-300 px-4 py-2">Actions</th>
@@ -55,14 +55,14 @@ function SmsGroups() {
       <tbody>
         {groupList.length === 0 ? (
           <tr>
-            <td colSpan="4" className="text-center py-4">Your groups will appear here.</td>
+            <td colSpan="4" className="text-center py-4 dark:text-[#ffffff] ">Your groups will appear here.</td>
           </tr>
         ) : (
           groups.map((group) => (
-            <tr key={group.id} className="hover:bg-gray-50">
-              <td className="border border-gray-300 px-4 py-2">{group.name}</td>
+            <tr key={group.id}>
+              <td className="border border-gray-300 px-4 py-2 dark:text-[#ffffff]">{group.name}</td>
               <td className="border  border-gray-300 px-4 py-2">
-                <a href="#" className="text-blue-600 hover:underline">{group.contact_count}</a>
+                <span className="dark:text-[#ffffff]">{group.contact_count}</span>
               </td>
               <td className="border flex items-center border-gray-300 px-4 py-2 space-x-2">
                 <button 

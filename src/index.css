@@ -5,7 +5,6 @@
 body,html{
   scroll-behavior:smooth;
   font-family:"poppins",sans-serif;
-  overflow-x: hidden;
 }
 
 li,button{
@@ -19,7 +18,7 @@ li,button{
   width: 1px;
   height: 1px;
   border-radius: 50%;
-  color: #a5f510;
+  color: #915eff;
   box-shadow: 
     calc(1*var(--d))      calc(0*var(--d))     0 0,
     calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,

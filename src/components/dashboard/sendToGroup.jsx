@@ -33,12 +33,12 @@ function SendToGroup() {
   };
 
   return (
-    <div className="border border-gray-300 rounded-md p-4 shadow-lg mt-6">
+    <div className="border border-[#915eff] rounded-md p-4 shadow-lg mt-6">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h3 className="text-xl text-gray-600">Select Groups</h3>
+        <h3 className="text-xl dark:text-[#ffffff]">Select Groups</h3>
         <div className="flex flex-col gap-1 mt-2 border-1 border-gray-300 p-3">
           {groupList.length ===0 ?(
-            <p className="text-gray-600 text-sm">You currently have no groups added</p>)
+            <p className="dark:text-[#ffffff] text-sm">You currently have no groups added</p>)
             : (
           groupList.map((group) => (
             <span key={group.id} className="flex items-center gap-2">
@@ -49,7 +49,7 @@ function SendToGroup() {
                 {...register("groups", { required: "Select at least one group" })}
                 onChange={handleGroupChange}
               />
-              <label htmlFor={`group-${group.id}`}>{group.name}</label>
+              <label className='dark:text-[#ffffff]' htmlFor={`group-${group.id}`}>{group.name}</label>
             </span>
           )))}
         </div>
@@ -58,11 +58,11 @@ function SendToGroup() {
         )}
 
         <div className="flex flex-col mt-4 gap-2">
-          <label className="text-gray-600">Message</label>
+          <label className="dark:text-[#ffffff]">Message</label>
           <textarea
             placeholder="Enter message"
             {...register("message", { required: "Message is required" })}
-            className="w-full h-30 p-3 rounded-md border-1 border-gray-300 focus:outline-none focus:border-blue-500 transition-all duration-300 ease-in-out"
+            className="w-full h-30 p-3 rounded-md border-1 border-gray-300 focus:outline-none dark:text-[#ffffff] focus:border-[#915eff] transition-all duration-300 ease-in-out"
           />
           {errors.message && (
             <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
@@ -71,7 +71,7 @@ function SendToGroup() {
 
         <button
           type="submit"
-          className="text-white bg-blue-500 px-4 py-2 rounded-md mt-10 w-40"
+          className='mt-8 w-[50%] md:w-[20%] shadow-md  shadow-[#ffffff] dark:shadow-[#050816] px-2 py-2 2xl:px-10 2xl:py-5 2xl:text-2xl bg-[#915eff] dark:bg-[#151030] font-semibold text-white dark:hover:bg-[#848298] transition-colors duration-400 ease-in-out rounded-md'
         >
           Send Message
         </button>

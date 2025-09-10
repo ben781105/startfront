@@ -53,12 +53,12 @@ const RegisterForm = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col gap-12 items-center justify-center bg-gradient-to-br from-blue-800 to-blue-400">
+    <section className="min-h-screen flex flex-col gap-12 items-center justify-center bg-[#050816]">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white rounded-lg shadow-lg p-8 w-[380px]"
+        className=" text-[#ffffff] bg-[#151030] rounded-lg shadow-lg p-8 w-[380px] flex flex-col"
       >
-        <h2 className="text-2xl font-semibold text-center mb-6">
+        <h2 className="text-2xl text-[#ffffff] font-semibold text-center mb-6">
           Create your account
         </h2>
 
@@ -68,7 +68,7 @@ const RegisterForm = () => {
             type="text"
             placeholder="Name"
             {...register("username", { required: "username is required" })}
-            className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-400"
+            className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none  focus:border-[#915eff]"
           />
           {errors.username && (
             <p className="text-red-500 text-sm mt-1">{errors.username.message}</p>
@@ -87,7 +87,7 @@ const RegisterForm = () => {
                 message: "Enter a valid email",
               },
             })}
-            className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-400"
+            className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none focus:border-[#915eff]"
           />
           {errors.email && (
             <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -106,7 +106,7 @@ const RegisterForm = () => {
                 message: "Enter a valid phone number",
               },
             })}
-            className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-400"
+            className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none  focus:border-[#915eff]"
           />
           {errors.phone_number && (
             <p className="text-red-500 text-sm mt-1">{errors.phone_number.message}</p>
@@ -125,7 +125,7 @@ const RegisterForm = () => {
                 message: "Password must be at least 6 characters",
               },
             })}
-            className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none  focus:border-blue-400"
+            className="w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none focus:border-[#915eff] peer"
           />
           {errors.password && (
             <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
@@ -138,21 +138,26 @@ const RegisterForm = () => {
      
         <button
           type="submit"
-          className="bg-blue-600 hover:bg-blue-700 mt-3 text-white font-semibold py-2 px-4 rounded w-full"
+          className="bg-[#915eff] hover:bg-[#848298] mt-3 text-white font-semibold py-2 px-4 rounded w-full"
         >
           Create account
         </button>
 
         <div className="mt-4 text-center">
-          <Link to="/signin" className="text-blue-600 hover:underline text-sm">
+          <Link to="/signin" className="text-[#848298] hover:underline text-sm">
             Back to login
           </Link>
         </div>
+
+           {loading && (
+           <div className="mt-12 self-center flex items-center">
+             <div className="loader"></div>
+           </div>
+      )}
+
       </form>
 
-      {loading && (
-        <div className="loader"></div>
-      )}
+     
     </section>
   );
 };

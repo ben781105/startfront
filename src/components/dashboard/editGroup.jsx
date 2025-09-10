@@ -34,12 +34,12 @@ function Editgroup({onClose,groupId,currentName}){
         animate={{opacity:1,scale:1,y:0}}
         exit={{opacity:0,scale:0.8,y:-50}}
         transition={{duration:0.3}}
-        className="bg-white rounded-lg shadow-lg p-6 w-full h-60 max-w-md"
+        className="dark:bg-[#100d25] rounded-lg shadow-lg p-6 w-full h-60 max-w-md"
         >
-         <h1 className="text-xl font-semibold ">Edit Group</h1>
+         <h1 className="text-xl font-semibold dark:text-[#ffffff]">Edit Group</h1>
          
           <form 
-          className='flex flex-col gap-4 mt-4'
+          className='flex flex-col gap-4 mt-4 dark:text-[#ffffff]'
           onSubmit={handleSubmit(onSubmit)}>
             <div className="relative">
           <input
@@ -53,7 +53,7 @@ function Editgroup({onClose,groupId,currentName}){
           <label
             className={`absolute left-4 text-gray-500 transition-all duration-200 ${
               groupValue
-                ? "text-xs -top-2 bg-white px-1"
+                ? "text-xs -top-2 bg-white dark:bg-[#100d25] px-1"
                 : "top-3 text-base"
             }`}
           >
@@ -76,7 +76,7 @@ function Editgroup({onClose,groupId,currentName}){
         <button 
           type='submit'
 
-          className={`${isValid?'bg-blue-500 cursor-pointer':'bg-gray-300 cursor-not-allowed text-gray-500'} w-[40%] text-white self-end py-2 mt-4 rounded-md font-semibold`}>
+          className={`${isValid?'dark:bg-[#915eff] cursor-pointer':'bg-gray-300 cursor-not-allowed text-gray-500'} w-[40%] text-white self-end py-2 mt-4 rounded-md font-semibold`}>
             {loading ? 'Saving...' : 'Save Changes'}
           </button>
         </div>

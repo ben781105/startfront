@@ -1,9 +1,8 @@
 import React from 'react'
 import Sidebar from './sidebar'
 import { Outlet } from 'react-router-dom'
-import { FaBell,FaUserLock } from 'react-icons/fa'
-import profile from '../../assets/images/sarah.png'
-import menu from '../../assets/svgs/blue-menu.svg';  
+import { FaUserLock,FaBars } from 'react-icons/fa'
+import profile from '../../assets/images/sarah.png'  
 import { useState } from 'react'
 import api from '../../api'
 import { useEffect } from 'react'
@@ -39,30 +38,27 @@ function Dashboard() {
 
  
   return (
-    <main className='flex  relative w-full min-h-screen overflow-x-hidden border-3'>
+    <main className='flex dark:bg-[#050816] relative w-full min-h-screen overflow-x-hidden border-3'>
       <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} setLogout={setLogout} logout={logout} />
-      <section className=' relative flex-1 px-4 w-full h-full'> 
-        <header className='flex items-center justify-between '>
-        <img 
-        src={menu} 
-        alt=""  
-        width={35}
-        className='md:hidden cursor-pointer'
+      <section className='  dark:bg-[#050816] relative flex-1 px-4 w-full h-full'> 
+        <header className='flex dark:bg-[#050816] items-center justify-between '>
+        <FaBars 
+        alt="menu"  
+        size={30}
+        className='md:hidden cursor-pointer dark:text-[#ffffff]'
         onClick={() => setOpenSidebar(!openSidebar)}
         />
 
         <span className='flex items-center gap-3'>
-          <h3 className=' text-base md:text-xl text-gray-500'>{String(user?.username || "").toUpperCase()}</h3>
-          <FaUserLock className=' text-blue-500'/>
+          <h3 className=' text-base md:text-xl dark:text-[#ffffff] font-semibold'>{String(user?.username || "").toUpperCase()}</h3>
+          <FaUserLock className=' text-[#915eff]'/>
         </span>
         <div className='flex items-center relative gap-4  p-2 rounded-lg '>
-          <div className="h-6 w-px bg-gray-300" />
-          <FaBell/>
-          <span className='flex items-center gap-2 cursor-pointer'>
+          
+          <span className='flex items-center cursor-pointer'>
             <img src={profile} alt="profile"
             className='w-10 h-10 rounded-full border-2 border-blue-500 cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out' 
             />
-            <span className='text-sm'>{user?.username}</span>
           </span>
         </div>
       </header>
@@ -77,7 +73,9 @@ function Dashboard() {
             <ConfirmLogout onClose={() => setLogout(false)} />
           </Motion.div>
         )}
+       
         <Outlet/>
+       
         <ThemeToggle/>
       </section>
     </main>

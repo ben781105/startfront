@@ -73,7 +73,7 @@ const tiltOptions = {
            </ul>
            <button
            onClick={()=>navigate('/dashboard')}
-            className='mt-8 w-[40%] shadow-md  shadow-[#ffffff] dark:shadow-[#050816] px-2 py-2 2xl:px-10 2xl:py-5 2xl:text-2xl bg-[#915eff] dark:bg-[#151030] font-semibold text-white dark:hover:bg-[#848298] transition-colors duration-400 ease-in-out rounded-md'> Start now</button>
+            className='mt-8 w-[40%] md:w-[50%] shadow-md  shadow-[#ffffff] dark:shadow-[#050816] px-2 py-2 2xl:px-10 2xl:py-5 2xl:text-2xl bg-[#915eff] dark:bg-[#151030] font-semibold text-white dark:hover:bg-[#848298] transition-colors duration-400 ease-in-out rounded-md'> Start now</button>
            <p></p>
            
          </Tilt>

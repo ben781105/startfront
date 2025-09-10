@@ -13,7 +13,7 @@ function HomeDashboard() {
 
 
   return (
-    <section className='flex-1  mt-8 h-screen pt-0 p-3 space-y-5'>
+    <section className='flex-1   mt-8 h-screen pt-0 p-3 space-y-5'>
       <div className='grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
         {metrics.map((metric)=>
        <div key={metric.id} className='flex  items-center h-30   bg-gray-200 shadow-md rounded-lg p-5 '>

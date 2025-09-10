@@ -2,31 +2,39 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className='bg-[#fffafa] dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] w-full pb-20 pt-6 mb-auto flex gap-8 justify-between pl-20 pr-20 md:pl-30 md:pr-30 flex-wrap'>
+    <footer className='bg-[#fffafa] dark:text-[#E2E2B6] dark:bg-[#100d25] w-full pb-20 pt-6 mb-auto flex gap-8 justify-between pl-20 pr-20 md:pl-30 md:pr-30 flex-wrap'>
       <div>
-        <h1 className='text-3xl italic'>SEND IT</h1>
+        <h1 className='text-3xl italic font-semibold dark: text-[#ffffff]'>SEND IT</h1>
         <span className='flex flex-col space-y-1 mt-6'>
-            <p>Phone:&nbsp;<a className='text-blue-500' href='tel+256708693920'>0708693920</a></p>
-            <p>Email:&nbsp;<a className='text-blue-500' href='mailtobenardleno78@gmail.com'>sendit@gmail.com</a></p>
+            <span className='flex items-center'>
+              <p className='font-semibold text-[#848298]'>Phone</p> 
+              : &nbsp;
+              <a className='dark:text-[#915eff]' href='tel+256708693920'>0708693920</a>
+            </span>
+            <span className='flex items-center font-semibold text-[#848298]'>
+              <p>Email</p>
+              : &nbsp;
+              <a className='dark:text-[#915eff]' href='mailtobenardleno78@gmail.com'>sendit@gmail.com</a>
+            </span>
         </span>
       </div>
 
       <div className='space-y-2'>
-        <h2 className='font-semibold text-xl'>Quick Links</h2>
-        <ul className='space-y-2'>
-          <li>Home</li>
-          <li>About us</li>
-          <li>Features</li>
-          <li>Pricing</li>
-          <li>F&Q's</li>
+        <h2 className='font-semibold text-xl dark:text-[#ffffff]'>Quick Links</h2>
+        <ul className='space-y-2 '>
+          <li className='dark:text-[#848298] dark: hover:text-[#ffffff] transition duration-400'>Home</li>
+          <li className='dark:text-[#848298] dark: hover:text-[#ffffff] transition duration-400'>About us</li>
+          <li className='dark:text-[#848298] dark: hover:text-[#ffffff] transition duration-400'>Features</li>
+          <li className='dark:text-[#848298] dark: hover:text-[#ffffff] transition duration-400'>Pricing</li>
+          <li className='dark:text-[#848298] dark: hover:text-[#ffffff] transition duration-400'>F&Q's</li>
         </ul>
       </div>
 
       <div className='space-y-2'>
-        <h2 className='font-semibold text-xl'>Need Assistance?</h2>
-        <p className='md:max-w-sm'>Our support team is here to help you 24/7. 
+        <h2 className='font-semibold text-xl dark:text-[#ffffff]'>Need Assistance?</h2>
+        <p className='md:max-w-sm dark:text-[#848298]'>Our support team is here to help you 24/7. 
             Reach out if you have questions or need assistance with our services.</p>
-        <button className='mt-4 bg-gradient-to-r from-purple-500 to-pink-500  p-2 dark:bg-[#6EACDA] text-white cursor-pointer rounded-lg'>Call Now</button>
+        <button className='mt-4 shadow-md  border dark:border-[#915eff] font-semibold dark:hover:bg-[#848298] transition duration-400 dark:shadow-[#050816] dark:bg-[#100d25] bg-[#915eff] px-4 py-2  text-white cursor-pointer rounded-md'>Call Now</button>
       </div>
     </footer>
   )

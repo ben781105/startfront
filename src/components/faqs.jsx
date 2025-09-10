@@ -1,6 +1,6 @@
 import { useState } from "react"
+import { FaChevronRight } from "react-icons/fa"
 
-import rightArrow from '../assets/svgs/forward.svg'
 function FAQ() {
 
   const [openId,setOpenId] =useState(false)
@@ -34,25 +34,25 @@ function FAQ() {
 
     
   return (
-    <section className=" pt-10 dark:text-[#E2E2B6] dark:bg-gradient-to-t from-[#021526] to-[#03346E] pl-4 pr-4 h-fit md:pl-20 md:pr-20 mt-10 pb-8 flex flex-col">
-      <h1 className='light:text-gray-800 self-center text-center relative text-3xl '>
-          Frequently Asked Questions
-          <span className='w-18 h-1 bg-blue-500 border-blue-500 absolute left-35 top-12'></span>
+    <section id="faq's" className=" pt-20 dark:text-[#E2E2B6] dark:bg-[#050816] w-full pl-4 pr-4 h-fit md:pl-20 md:pr-20  pb-8 flex flex-col">
+      <h1 className='light:text-gray-800 dark:text-[#ffffff] font-semibold self-center text-center relative text-2xl sm:text-3xl md:text-4xl '>
+          FREQUENTLY ASKED QUESTIONS
+      
       </h1>
       
-      <div className="w-full max-w-4xl m-auto mt-10 space-y-4">
+      <div className="w-full  rounded-lg dark:bg-[#100d25]  px-4 py-20 md:px-20 md:py-20 max-w-5xl m-auto mt-10 space-y-4">
         {faqs.map(({answer,id,question})=>
-         <div key={id} className=" border border-gray-300 p-4 rounded-lg">
+         <div key={id} className=" border dark:bg-[#090325] dark:border-[#915eff] p-4 rounded-lg">
             <div className="flex justify-between items-center cursor-pointer"
             onClick={()=>toggle(id)}>
-                <h2 className=" text-base dark:text-[#E2E2B6] font-semibold">{question}</h2>
-                <img 
+                <h2 className=" text-base dark:text-[#ffffff] font-semibold">{question}</h2>
+                <FaChevronRight
                 className={`transform transition-transform duration-300 ${openId===id? "rotate-90":""}`}
-                src={rightArrow} alt="" width={24} />
+                alt="dropdown" width={24} />
             </div>
 
             <div className={`transition-all duration-300 overflow-hidden ${openId===id?"max-h-40 mt-2 opacity-100":"max-h-0 opacity-0"}`}>
-                <p className="text-blue-500 dark:text-[#6EACDA]">{answer}</p>
+                <p className="text-blue-500 dark:text-[#ffffdc]">{answer}</p>
             </div>
 
          </div>

@@ -10,13 +10,14 @@ import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import ConfirmLogout from './ConfirmLogout'
 import { motion as Motion } from 'framer-motion'
-
+import ThemeToggle from '../themeToggle'
+import { useSelector } from 'react-redux'
 function Dashboard() {
 
   const [user, setUser] = useState({});
   const [openSidebar, setOpenSidebar] = useState(false);
   const [logout ,setLogout] = useState(false)
-
+  const theme = useSelector((state) => state.theme.mode);
   useEffect(()=>{
     const getUserInfo = async()=>{
       try{
@@ -28,11 +29,17 @@ function Dashboard() {
       }
     }
     getUserInfo()
-  },[])
+
+     if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+  },[theme])
 
  
   return (
-    <main className='flex w-full min-h-screen overflow-x-hidden border-3'>
+    <main className='flex  relative w-full min-h-screen overflow-x-hidden border-3'>
       <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} setLogout={setLogout} logout={logout} />
       <section className=' relative flex-1 px-4 w-full h-full'> 
         <header className='flex items-center justify-between '>
@@ -71,6 +78,7 @@ function Dashboard() {
           </Motion.div>
         )}
         <Outlet/>
+        <ThemeToggle/>
       </section>
     </main>
   )

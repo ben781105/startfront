@@ -38,19 +38,19 @@ function Features(){
   };
 
   return(
-    <section id='features' className=" bg-[#fffafa] dark:text-[#E2E2B6] dark:bg-[#050816] h-fit pr-4 pl-4 pt-20 overflow-x-hidden md:pl-20 md:pr-20 pb-10 space-y-2 flex flex-col ">
-      <h1 className='dark:text-[#ffffff] font-semibold self-center relative text-2xl sm:text-3xl md:text-3xl 2xl:text-3xl'>FEATURES </h1>
+    <section id='features' className=" bg-[#ffffff] dark:text-[#E2E2B6] dark:bg-[#050816] h-fit pr-4 pl-4 pt-20 overflow-x-hidden md:pl-20 md:pr-20 pb-10 space-y-2 flex flex-col ">
+      <h1 className=' text-[#1a1a1a] dark:text-[#ffffff] font-semibold self-center relative text-2xl sm:text-3xl md:text-3xl 2xl:text-3xl'>FEATURES </h1>
       
-      <p className='self-center text-center  text-lg 2xl:text-2xl mt-3 dark:text-[#ffffdc]'>Bulk SMS sending, SMS Campaign Creation, Delivery Reports and Anaytics, Api Integration</p>
+      <p className='self-center text-center  2xl:text-2xl mt-3 text-[#6b7289] dark:text-[#ffffdc] text-base md:text-xl'>Bulk SMS sending, SMS Campaign Creation, Delivery Reports and Anaytics, Api Integration</p>
       <div className='grid grid-cols-1 sm:grid-cols-2 px-5 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4 '>
         {features.map((feature)=>
-         <Tilt className='dark:bg-[#151030] flex w-full lg:p-4 md:pl-6 md:pr-6 h-70 justify-center  dark:text-[#021526]  items-center flex-col p-3  text-center transition-colors duration-300 ease-in-out shadow-md rounded-lg' 
+         <Tilt className=' bg-[#f3f4f6] dark:bg-[#151030] flex w-full lg:p-4 md:pl-6 md:pr-6 h-70 justify-center  dark:text-[#021526]  items-center flex-col p-3  text-center transition-colors duration-300 ease-in-out shadow-md rounded-lg' 
          key={feature.id}
          options={tiltOptions}
          >
-            <span className=' dark:text-[#915eff] flex items-center'>{feature.icon}</span>
-            <h2 className='text-2xl text-semibold mt-3 dark: text-[#ffffff] '>{feature.name}</h2>
-            <p className='text-base 2xl:text-2xl mt-2 dark:text-[#848298]'>{feature.desc}</p>
+            <span className='text-[#915eff] flex items-center'>{feature.icon}</span>
+            <h2 className='text-xl text-semibold mt-3 text-[#1a1a1a] dark:text-[#ffffff] '>{feature.name}</h2>
+            <p className='xs:text-sm sm:text-base 2xl:text-2xl mt-2 text-[#6b7280] dark:text-[#848298]'>{feature.desc}</p>
          </Tilt>
         )}
       </div>

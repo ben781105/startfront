@@ -16,9 +16,9 @@ function Navbar() {
 
 
   return (
-    <nav className="bg-blue-500 pb-4 dark:bg-[#050816]/40 blackdrop-filter backdrop-blur-xs  dark:text-[#021526] flex flex-col z-50 fixed top-0 left-0 right-0 gap-5 p-3 pl-5 pr-5 md:flex-row md:items-center md:justify-between md:gap-40">
+    <nav className="bg-[#ffffff]/40  pb-4 dark:bg-[#050816]/40 blackdrop-filter backdrop-blur-xs  dark:text-[#021526] flex flex-col z-50 fixed top-0 left-0 right-0 gap-5 p-3 pl-5 pr-5 md:flex-row md:items-center md:justify-between md:gap-40">
       <div className="flex items-center justify-between w-full md:pl-20 md:w-auto">
-        <h1 className=" text-white dark:text-[#ffffff] text-2xl md:text-3xl  font-semibold sm:text-3xl">SEND IT</h1>
+        <h1 className=" text-[#1a1a1a] dark:text-[#ffffff] text-2xl md:text-3xl  font-semibold sm:text-3xl">SEND IT</h1>
         <FaBars
           className="cursor-pointer dark:text-[#ffffff] md: md:hidden text-2xl"
           alt="menu"
@@ -36,7 +36,7 @@ function Navbar() {
               key={index}
               onClick={() => setIsOpen(false)}
               href={`#${link.toLowerCase()}`}
-              className="text-base dark:text-[#848298] dark:font-semibold dark: hover:text-[#ffffff] transition duration-400 cursor-pointer"
+              className="text-base text-[#6b7280] hover:text-[#1a1a1a] dark:text-[#848298] font-semibold dark:hover:text-[#ffffff] transition duration-400 cursor-pointer"
             >
               <a href={`#${link.toLowerCase()}`}>{link}</a>
             </li>
@@ -45,7 +45,7 @@ function Navbar() {
 
         <button
           onClick={toDashboard}
-          className="dark:bg-[#915eff] font-semibold p-2 mt-4 md:mt-0 rounded-sm text-white"
+          className="bg-[#915eff] font-semibold p-2 mt-4 md:mt-0 rounded-sm text-white"
         >
           DASHBOARD
         </button>

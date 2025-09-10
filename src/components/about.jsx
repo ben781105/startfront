@@ -26,7 +26,7 @@ function About(){
 
     ]
   return(
-    <section id='about' className='  dark:text-[#E2E2B6] bg-[#ffffff] dark:bg-[#050816] h-fit flex flex-col max-w-screen md:px-10 lg:px-30  pl-4 pr-4 pt-20 pb-10 justify-center '>
+    <section id='about' className=' bg-[#ffffff] dark:bg-[#050816] h-fit flex flex-col w-full max-w-screen md:px-10 lg:px-30  pl-4 pr-4 pt-20 pb-10 justify-center overflow-x-hidden'>
         <h1 className=' text-[#1a1a1a] dark:text-[#ffffff] font-semibold  self-center relative text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl '>ABOUT US</h1>
           <p className=' text-[#6b7289] dark:text-[#ffffdc] text-base md:text-xl text-center md:max-w-3xl md:mx-auto mt-6 2xl:text-4xl'>We are Uganda's leading and most trusted provider of bulk SMS solutions, delivering high-quality messaging services to businesses of all sizes.</p>
         <div className=' flex  flex-col sm:flex-col md:flex-col lg:flex-row  w-full gap-7 mt-10 2xl:mt-25'>

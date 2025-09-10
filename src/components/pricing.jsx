@@ -47,7 +47,7 @@ const tiltOptions = {
   };
 
   return (
-    <section id="pricing" className="pt-20 dark:text-[#ffffdc] bg-[#ffffff] dark:bg-[#050816] h-fit pl-4 space-y-3 pr-4 md:pl-35 md:pr-35 pb-20 flex flex-col" >
+    <section id="pricing" className="pt-20 dark:text-[#ffffdc] bg-[#ffffff] dark:bg-[#050816] h-fit pl-4 space-y-3 pr-4 md:pl-35 md:pr-35 pb-20 flex flex-col overflow-x-hidden w-full" >
       <h1 className='text-[#1a1a1a] font-semibold dark:text-[#ffffff] self-center md:self-center relative text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl '>
           PRICING
       </h1>

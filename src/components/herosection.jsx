@@ -3,8 +3,8 @@ function Herosection(){
 
   const navigate = useNavigate();
     return(
-        <section id="home" className=" bg-[#ffffff] bg-dark:text-[#ffffff] dark:bg-[#050816] relative min-h-screen flex flex-col  justify-center  gap-6 items-center overflow-x-hidden ">
-          <div className='flex flex-col  w-full px-4 ' >
+        <section id="home" className=" bg-[#ffffff] w-full bg-dark:text-[#ffffff] dark:bg-[#050816] relative min-h-screen flex flex-col  justify-center  gap-6 items-center overflow-x-hidden ">
+          <div className='flex flex-col  w-full px-4  overflow-x-hidden' >
             <p className=' text-[#1a1a1a] dark:text-[#ffffff] md:text-5xl 2xl:text-6xl text-3xl sm:text-4xl text-center'>
               Seamlessly send bulk <span className="text-[#915eff]">SMS messages</span> in Uganda.
             </p>

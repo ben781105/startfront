@@ -34,7 +34,7 @@ function FAQ() {
 
     
   return (
-    <section id="faq's" className=" pt-20 dark:text-[#E2E2B6] bg-[#ffffff]  dark:bg-[#050816] w-full pl-4 pr-4 h-fit md:pl-20 md:pr-20  pb-8 flex flex-col">
+    <section id="faq's" className=" pt-20 dark:text-[#E2E2B6] bg-[#ffffff]  dark:bg-[#050816] w-full pl-4 pr-4 h-fit md:pl-20 md:pr-20  pb-8 flex flex-col overflow-x-hidden w-full">
       <h1 className='light:text-gray-800 dark:text-[#ffffff] font-semibold self-center text-center relative text-2xl sm:text-3xl md:text-4xl '>
           FREQUENTLY ASKED QUESTIONS
       
@@ -42,7 +42,7 @@ function FAQ() {
       
       <div className="w-full  rounded-lg dark:bg-[#100d25] bg-[#915eff]  px-4 py-20 md:px-20 md:py-20 max-w-5xl m-auto mt-10 space-y-4">
         {faqs.map(({answer,id,question})=>
-         <div key={id} className=" border bg-[#f3f4f6] border-[#3b82f6] dark:bg-[#090325] dark:border-[#915eff] p-4 rounded-lg">
+         <div key={id} className=" dark:border bg-[#f3f4f6]  dark:bg-[#090325] dark:border-[#915eff] p-4 rounded-lg">
             <div className="flex justify-between items-center cursor-pointer"
             onClick={()=>toggle(id)}>
                 <h2 className=" text-base text-[#1a1a1a] dark:text-[#ffffff] font-semibold">{question}</h2>

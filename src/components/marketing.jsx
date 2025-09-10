@@ -30,7 +30,7 @@ function Marketing() {
 
     ]
   return (
-    <section id='marketing' className=' bg-[#ffffff] dark:text-[#E2E2B6] dark:bg-[#050816] w-full pl-4 pr-4 pt-15 pb-10 md:pl-20 space-y-5 md:pr-20 flex flex-col'>
+    <section id='marketing' className=' bg-[#ffffff] dark:text-[#E2E2B6] dark:bg-[#050816] w-full pl-4 pr-4 pt-15 pb-10 md:pl-20 space-y-5 md:pr-20 flex flex-col overflow-x-hidden'>
       <h1 className='dark:text-[#ffffff] text-2xl sm:text-3xl md:text-4xl font-semibold self-center relative  2xl:text-3xl '>
           SMS MARKETING
         

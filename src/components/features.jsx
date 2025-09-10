@@ -38,7 +38,7 @@ function Features(){
   };
 
   return(
-    <section id='features' className=" bg-[#ffffff] dark:text-[#E2E2B6] dark:bg-[#050816] h-fit pr-4 pl-4 pt-20 overflow-x-hidden md:pl-20 md:pr-20 pb-10 space-y-2 flex flex-col ">
+    <section id='features' className=" bg-[#ffffff] w-full dark:text-[#E2E2B6] dark:bg-[#050816] h-fit pr-4 pl-4 pt-20 overflow-x-hidden md:pl-20 md:pr-20 pb-10 space-y-2 flex flex-col ">
       <h1 className=' text-[#1a1a1a] dark:text-[#ffffff] font-semibold self-center relative text-2xl sm:text-3xl md:text-3xl 2xl:text-3xl'>FEATURES </h1>
       
       <p className='self-center text-center  2xl:text-2xl mt-3 text-[#6b7289] dark:text-[#ffffdc] text-base md:text-xl'>Bulk SMS sending, SMS Campaign Creation, Delivery Reports and Anaytics, Api Integration</p>

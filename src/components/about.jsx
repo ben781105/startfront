@@ -28,7 +28,7 @@ function About(){
   return(
     <section id='about' className='  dark:text-[#E2E2B6] dark:bg-[#050816] h-fit flex flex-col max-w-screen md:px-10 lg:px-30  pl-4 pr-4 pt-20 pb-10 justify-center '>
         <h1 className='dark:text-[#ffffff] font-semibold  self-center relative text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl '>ABOUT US</h1>
-          <p className='text-center text-xl md:max-w-3xl md:mx-auto mt-6 2xl:text-4xl'>We are Uganda's leading and most trusted provider of bulk SMS solutions, delivering reliable, high-quality messaging services to businesses of all sizes.</p>
+          <p className='text-center text-xl md:max-w-3xl md:mx-auto mt-6 2xl:text-4xl'>We are Uganda's leading and most trusted provider of bulk SMS solutions, delivering high-quality messaging services to businesses of all sizes.</p>
         <div className=' flex  flex-col sm:flex-col md:flex-col lg:flex-row  w-full gap-7 mt-10 2xl:mt-25'>
        <div className='w-full px-6 pt-3 pb-6 border-b-3 dark:border-[#ffffdc] dark:bg-[#1d1836] rounded-lg'>
       

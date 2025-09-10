@@ -54,7 +54,7 @@ const tiltOptions = {
       
       <p className='text-center md:max-w-3xl m-auto mt-4 text-base 2xl:text-3xl md:text-lg dark:text-[#ffffdc]'>Choose from our flexible pricing plans, tailored for Basic,Pro and Premium needs, offering reliable tools,support and affordable SMS rates</p>
         
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 2xl:px-30 gap-8  2xl:gap-18 mt-8'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 2xl:px-30 gap-8 px-5  2xl:gap-18 mt-8'>
         
         {priceCards.map((priceCard)=>
          <Tilt 

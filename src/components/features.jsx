@@ -42,7 +42,7 @@ function Features(){
       <h1 className='dark:text-[#ffffff] font-semibold self-center relative text-2xl sm:text-3xl md:text-3xl 2xl:text-3xl'>FEATURES </h1>
       
       <p className='self-center text-center  text-lg 2xl:text-2xl mt-3 dark:text-[#ffffdc]'>Bulk SMS sending, SMS Campaign Creation, Delivery Reports and Anaytics, Api Integration</p>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 '>
+      <div className='grid grid-cols-1 sm:grid-cols-2 px-5 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4 '>
         {features.map((feature)=>
          <Tilt className='dark:bg-[#151030] flex w-full lg:p-4 md:pl-6 md:pr-6 h-70 justify-center  dark:text-[#021526]  items-center flex-col p-3  text-center transition-colors duration-300 ease-in-out shadow-md rounded-lg' 
          key={feature.id}

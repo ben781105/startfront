@@ -34,7 +34,7 @@ function FAQ() {
 
     
   return (
-    <section id="faq's" className=" pt-20 dark:text-[#E2E2B6] bg-[#ffffff]  dark:bg-[#050816] w-full pl-4 pr-4 h-fit md:pl-20 md:pr-20  pb-8 flex flex-col overflow-x-hidden w-full">
+    <section id="faq's" className=" pt-20 dark:text-[#E2E2B6] bg-[#ffffff]  dark:bg-[#050816] w-full pl-4 pr-4 h-fit md:pl-20 md:pr-20  pb-8 flex flex-col overflow-x-hidden ">
       <h1 className='light:text-gray-800 dark:text-[#ffffff] font-semibold self-center text-center relative text-2xl sm:text-3xl md:text-4xl '>
           FREQUENTLY ASKED QUESTIONS
       

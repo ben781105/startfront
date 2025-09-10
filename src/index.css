@@ -4,7 +4,8 @@
 
 body,html{
   scroll-behavior:smooth;
-  font-family:"poppins",sans-serif
+  font-family:"poppins",sans-serif;
+  overflow-x: hidden;
 }
 
 li,button{

@@ -25,7 +25,7 @@ function Homepage(){
   }, [dispatch,theme]);
 
   return(
-    <div className="w-full relative overflow-x-hidden">
+    <div className="w-full flex flex-col items-center  relative overflow-x-hidden">
      <Navbar/>
      <Herosection/>
      <About/>

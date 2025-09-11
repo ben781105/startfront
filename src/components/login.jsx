@@ -31,10 +31,10 @@ const LoginForm = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col gap-12 pb-8 px-4 items-center justify-center bg-[#050816]">
+    <section className="min-h-screen flex flex-col gap-12 pb-8 px-4 items-center justify-center bg-[#050816] w-full overflow-x-hidden">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-[#100d25] rounded-lg shadow-lg p-8 w-90 text-[#ffffff] flex flex-col"
+        className="bg-[#100d25] rounded-lg shadow-lg p-6 max-w-md sm:max-w-lg text-[#ffffff] flex flex-col"
       >
         <h2 className="text-2xl text-[#ffffff] font-semibold text-center mb-6">
           Log in to your account
@@ -85,10 +85,10 @@ const LoginForm = () => {
           </label>
         </div>
 
-        <div className="flex justify-between gap-7">
+        <div className="flex justify-between gap-5">
           <button
             type="submit"
-            className="bg-[#915eff] hover:bg-[#848298] text-white font-semibold py-2 px-4 rounded w-[50%]"
+            className="bg-[#915eff] hover:bg-[#848298] text-white font-semibold py-2 px-4 rounded w-1/2"
           >
            Sign in
           </button>

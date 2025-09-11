@@ -56,7 +56,7 @@ const RegisterForm = () => {
     <section className="min-h-screen flex flex-col gap-12 items-center justify-center bg-[#050816]">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" text-[#ffffff] bg-[#151030] rounded-lg shadow-lg p-8 w-[380px] flex flex-col"
+        className=" text-[#ffffff] bg-[#151030] rounded-lg shadow-lg p-8 max-w-md flex flex-col"
       >
         <h2 className="text-2xl text-[#ffffff] font-semibold text-center mb-6">
           Create your account

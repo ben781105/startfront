@@ -31,7 +31,7 @@ const LoginForm = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col gap-12 pb-8 px-6 items-center justify-center bg-[#050816] w-full overflow-x-hidden">
+    <section className="min-h-screen flex flex-col gap-12 pb-8 px-4 items-center justify-center bg-[#050816] w-full overflow-x-hidden">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-[#100d25] rounded-lg shadow-lg p-6 max-w-md sm:max-w-lg text-[#ffffff] flex flex-col"

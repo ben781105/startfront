@@ -53,7 +53,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <section className="min-h-screen px-6 flex flex-col gap-12 items-center justify-center bg-[#050816]">
+    <section className="min-h-screen px-4 flex flex-col gap-12 items-center justify-center bg-[#050816]">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className=" text-[#ffffff] bg-[#151030] rounded-lg shadow-lg p-8 max-w-md flex flex-col"
